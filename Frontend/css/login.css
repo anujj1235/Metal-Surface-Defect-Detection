@@ -1,0 +1,37 @@
+/* =========================================================
+   LOGIN OPTIONS
+========================================================= */
+
+.login-options {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 3px 0 20px;
+
+    color: #7b8796;
+
+    font-size: 11px;
+}
+
+.login-options label {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    cursor: pointer;
+}
+
+.login-options input {
+    accent-color: #1769e0;
+}
+
+.login-options span {
+    color: #2e9b62;
+
+    font-weight: 700;
+}

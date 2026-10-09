@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Inspection History | Metal Vision AI</title>
+
+    <!-- Main CSS -->
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+    <!-- Dashboard CSS -->
+    <link
+        rel="stylesheet"
+        href="./css/dashboard.css"
+    >
+
+    <!-- History CSS -->
+    <link
+        rel="stylesheet"
+        href="./css/history.css"
+    >
+
+    <!-- Google Font -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body class="history-page">
+
+
+<!-- =====================================================
+     SIDEBAR
+===================================================== -->
+
+<aside
+    class="sidebar"
+    id="sidebar"
+>
+
+    <a
+        href="index.html"
+        class="sidebar-logo"
+    >
+
+        <div class="logo-mark">
+            <span>MV</span>
+        </div>
+
+        <div>
+
+            <h2>METAL VISION</h2>
+
+            <span>AI INSPECTION</span>
+
+        </div>
+
+    </a>
+
+
+    <nav class="sidebar-nav">
+
+        <a
+            href="dashboard.html"
+            class="nav-item"
+        >
+            <span class="nav-icon">▦</span>
+            <span>Dashboard</span>
+        </a>
+
+
+        <a
+            href="inspection.html"
+            class="nav-item"
+        >
+            <span class="nav-icon">⌕</span>
+            <span>New Inspection</span>
+        </a>
+
+
+        <a
+            href="history.html"
+            class="nav-item active"
+        >
+            <span class="nav-icon">◴</span>
+            <span>Inspection History</span>
+        </a>
+
+
+        <div class="nav-section-title">
+            ANALYTICS
+        </div>
+
+
+        <a
+            href="dashboard.html#analytics"
+            class="nav-item"
+        >
+            <span class="nav-icon">▥</span>
+            <span>Defect Analytics</span>
+        </a>
+
+
+        <a
+            href="dashboard.html#model"
+            class="nav-item"
+        >
+            <span class="nav-icon">◇</span>
+            <span>AI Model</span>
+        </a>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <a
+            href="#"
+            class="nav-item"
+        >
+            <span class="nav-icon">⚙</span>
+            <span>Settings</span>
+        </a>
+
+
+        <button
+            class="logout-btn"
+            id="logoutBtn"
+            type="button"
+        >
+
+            <span class="nav-icon">↪</span>
+            <span>Logout</span>
+
+        </button>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main class="dashboard-main">
+
+
+<!-- =====================================================
+     TOPBAR
+===================================================== -->
+
+<header class="dashboard-topbar">
+
+    <button
+        class="mobile-menu-btn"
+        id="mobileMenuBtn"
+        type="button"
+        aria-label="Open navigation menu"
+    >
+        ☰
+    </button>
+
+
+    <div class="topbar-title">
+
+        <span class="page-label">
+            INSPECTION MANAGEMENT
+        </span>
+
+        <h1>
+            Inspection History
+        </h1>
+
+    </div>
+
+
+    <div class="topbar-actions">
+
+        <button
+            class="notification-btn"
+            type="button"
+            title="Notifications"
+        >
+            🔔
+            <span class="notification-dot"></span>
+        </button>
+
+
+        <div class="user-profile">
+
+            <div
+                class="user-avatar"
+                id="userAvatar"
+            >
+                U
+            </div>
+
+            <div class="user-info">
+
+                <strong id="historyUserName">
+                    User
+                </strong>
+
+                <span>
+                    Inspector
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     PAGE CONTENT
+===================================================== -->
+
+<section class="history-content">
+
+
+<!-- =====================================================
+     PAGE INTRO
+===================================================== -->
+
+<div class="history-intro">
+
+    <div>
+
+        <span class="section-label">
+            INSPECTION LOG
+        </span>
+
+        <h2>
+            Previous Inspections
+        </h2>
+
+        <p>
+            View and manage all previously analyzed metal
+            surface inspections.
+        </p>
+
+    </div>
+
+
+    <a
+        href="inspection.html"
+        class="primary-dashboard-btn"
+    >
+
+        <span>＋</span>
+
+        New Inspection
+
+    </a>
+
+</div>
+
+
+
+<!-- =====================================================
+     SUMMARY CARDS
+===================================================== -->
+
+<div class="history-summary">
+
+
+    <!-- TOTAL -->
+
+    <div class="history-summary-card history-card-total">
+
+        <div class="summary-icon blue">
+            ◫
+        </div>
+
+        <div>
+
+            <strong id="historyTotal">
+                0
+            </strong>
+
+            <span>
+                Total Inspections
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- GOOD -->
+
+    <div class="history-summary-card history-card-good">
+
+        <div class="summary-icon green">
+            ✓
+        </div>
+
+        <div>
+
+            <strong id="historyGood">
+                0
+            </strong>
+
+            <span>
+                Good Inspections
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- DEFECTIVE -->
+
+    <div class="history-summary-card history-card-defective">
+
+        <div class="summary-icon red">
+            !
+        </div>
+
+        <div>
+
+            <strong id="historyDefective">
+                0
+            </strong>
+
+            <span>
+                Defective Inspections
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- VISIBLE -->
+
+    <div class="history-summary-card history-card-visible">
+
+        <div class="summary-icon purple">
+            ◈
+        </div>
+
+        <div>
+
+            <strong id="visibleRecords">
+                0
+            </strong>
+
+            <span>
+                Showing Results
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     FILTER PANEL
+===================================================== -->
+
+<div class="history-filter-panel">
+
+
+    <div class="history-filter-heading">
+
+        <div>
+
+            <span class="section-label">
+                SEARCH & FILTER
+            </span>
+
+            <h3>
+                Find Inspection Records
+            </h3>
+
+        </div>
+
+
+        <button
+            type="button"
+            id="clearFiltersBtn"
+            class="clear-filter-btn"
+        >
+            ↻ Clear Filters
+        </button>
+
+    </div>
+
+
+
+    <div class="history-filter-grid">
+
+
+        <!-- SEARCH -->
+
+        <div class="history-control history-search-control">
+
+            <label for="historySearch">
+                Inspection ID
+            </label>
+
+            <div class="history-input-wrapper">
+
+                <span>
+                    🔍
+                </span>
+
+                <input
+                    type="text"
+                    id="historySearch"
+                    placeholder="Search inspection ID..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- CONDITION -->
+
+        <div class="history-control">
+
+            <label for="conditionFilter">
+                Condition
+            </label>
+
+            <select id="conditionFilter">
+
+                <option value="all">
+                    All Conditions
+                </option>
+
+                <option value="GOOD">
+                    ✓ Good
+                </option>
+
+                <option value="DEFECTIVE">
+                    ! Defective
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- METAL -->
+
+        <div class="history-control">
+
+            <label for="metalFilter">
+                Type of Metal
+            </label>
+
+            <select id="metalFilter">
+
+                <option value="all">
+                    All Metals
+                </option>
+
+                <option value="Steel">
+                    Steel
+                </option>
+
+                <option value="Iron">
+                    Iron
+                </option>
+
+                <option value="Aluminium">
+                    Aluminium
+                </option>
+
+            </select>
+
+        </div>
+
+
+
+        <!-- FROM DATE -->
+
+        <div class="history-control">
+
+            <label for="fromDate">
+                From Date
+            </label>
+
+            <input
+                type="date"
+                id="fromDate"
+            >
+
+        </div>
+
+
+
+        <!-- TO DATE -->
+
+        <div class="history-control">
+
+            <label for="toDate">
+                To Date
+            </label>
+
+            <input
+                type="date"
+                id="toDate"
+            >
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     TABLE CARD
+===================================================== -->
+
+<div class="dashboard-card history-table-card">
+
+
+    <!-- TABLE HEADER -->
+
+    <div class="card-header history-table-header">
+
+        <div>
+
+            <span class="section-label">
+                RECORDS
+            </span>
+
+            <h3>
+                Inspection Records
+            </h3>
+
+        </div>
+
+
+        <div class="records-status">
+
+            <span class="records-live-dot"></span>
+
+            <span>
+                Live Database
+            </span>
+
+            <strong id="recordsCount">
+                0
+            </strong>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TABLE -->
+
+    <div class="table-wrapper">
+
+        <table class="inspection-history-table">
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        <span class="table-heading-icon">
+                            #
+                        </span>
+                        Inspection ID
+                    </th>
+
+                    <th>
+                        <span class="table-heading-icon">
+                            ◈
+                        </span>
+                        Type of Metal
+                    </th>
+
+                    <th>
+                        <span class="table-heading-icon">
+                            ●
+                        </span>
+                        Condition
+                    </th>
+
+                    <th>
+                        <span class="table-heading-icon">
+                            ▣
+                        </span>
+                        Date
+                    </th>
+
+                    <th>
+                        <span class="table-heading-icon">
+                            ◷
+                        </span>
+                        Time
+                    </th>
+
+                    <th class="action-column">
+                        Action
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="historyTableBody">
+
+                <!-- Loaded dynamically -->
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+
+
+    <!-- EMPTY STATE -->
+
+    <div
+        class="history-empty"
+        id="historyEmpty"
+        style="display:none;"
+    >
+
+        <div class="empty-icon">
+            ⌕
+        </div>
+
+        <h3>
+            No inspections found
+        </h3>
+
+        <p>
+            Try changing your search or filters.
+        </p>
+
+        <button
+            type="button"
+            id="emptyClearBtn"
+            class="clear-filter-btn"
+        >
+            Clear Filters
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     INFORMATION CARD
+===================================================== -->
+
+<div class="history-info-card">
+
+    <div class="history-info-icon">
+        ✦
+    </div>
+
+    <div>
+
+        <strong>
+            Inspection History
+        </strong>
+
+        <p>
+            All completed AI inspections are stored in the
+            inspection database. Select
+            <strong>View Results</strong> to open the complete
+            inspection result, including defect information
+            and Grad-CAM visualization.
+        </p>
+
+    </div>
+
+</div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="dashboard-footer">
+
+    <span>
+        © 2026 Metal Vision AI
+    </span>
+
+    <span>
+        Industrial AI Surface Inspection System
+    </span>
+
+</footer>
+
+</main>
+
+
+
+<!-- =====================================================
+     AI ASSISTANT
+===================================================== -->
+
+<button
+    class="dashboard-ai-btn"
+    id="dashboardAiBtn"
+    type="button"
+>
+
+    <span>
+        ✦
+    </span>
+
+    AI Assistant
+
+</button>
+
+
+
+<div
+    class="dashboard-chatbot"
+    id="dashboardChatbot"
+>
+
+    <div class="chatbot-header">
+
+        <div>
+
+            <strong>
+                Metal Vision AI
+            </strong>
+
+            <span>
+                ● Online
+            </span>
+
+        </div>
+
+        <button
+            id="closeDashboardChatbot"
+            type="button"
+        >
+            ×
+        </button>
+
+    </div>
+
+
+    <div
+        class="chatbot-body"
+        id="dashboardChatBody"
+    >
+
+        <div class="chat-message bot">
+
+            Hello! 👋 I'm Metal Vision AI Assistant.
+            How can I help you?
+
+        </div>
+
+        <div class="chat-message bot">
+
+            You can ask me about ResNet50,
+            Grad-CAM, metal defects or inspection reports.
+
+        </div>
+
+    </div>
+
+
+    <div class="chatbot-input">
+
+        <input
+            type="text"
+            id="dashboardChatInput"
+            placeholder="Ask something..."
+            autocomplete="off"
+        >
+
+        <button
+            id="dashboardChatSend"
+            type="button"
+        >
+            ➤
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="./js/history.js"></script>
+<script src="./js/chatbot.js"></script>
+
+</body>
+</html>

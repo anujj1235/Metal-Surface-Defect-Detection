@@ -1,0 +1,7 @@
+INDUSTRIAL METAL SURFACE DEFECT DETECTION
+ResNet50 Test Evaluation
+
+Total test images: 169
+Test loss: 0.188959
+Test accuracy: 0.923077
+Test accuracy (%): 92.31%

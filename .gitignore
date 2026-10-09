@@ -1,0 +1,27 @@
+
+# Python environment
+.venv/
+__pycache__/
+*.py[cod]
+.vscode/
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Local data and generated files
+*.db
+*.sqlite
+*.sqlite3
+reports/
+uploads/
+temp_merge/
+Industrial_Metal_Surface_Dataset/
+Frontend_updated.zip
+all_dataset_files.txt
+
+# Large trained models
+model/*.keras
+training/outputs/*.keras
+training/outputs/*.h5

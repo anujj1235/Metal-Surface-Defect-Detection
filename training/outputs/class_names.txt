@@ -1,0 +1,4 @@
+steel_defective
+iron_defective
+aluminium_good
+aluminium_defective

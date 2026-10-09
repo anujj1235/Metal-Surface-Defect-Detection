@@ -1,0 +1,47 @@
+{
+    "dataset": "C:\\Metal_Surface_Detection\\Industrial_Metal_Surface_Dataset",
+    "total_images": 1314,
+    "train_images": 1116,
+    "validation_images": 100,
+    "test_images": 98,
+    "image_size": [
+        224,
+        224
+    ],
+    "batch_size": 16,
+    "initial_epochs": 15,
+    "fine_tune_epochs": 35,
+    "classes": [
+        "aluminium_defective",
+        "aluminium_good",
+        "copper_defective",
+        "copper_good",
+        "iron_defective",
+        "steel_defective"
+    ],
+    "class_counts": {
+        "aluminium_defective": 220,
+        "aluminium_good": 24,
+        "copper_defective": 8,
+        "copper_good": 4,
+        "iron_defective": 180,
+        "steel_defective": 878
+    },
+    "class_weights": {
+        "aluminium_defective": 0.9946524064171123,
+        "aluminium_good": 9.3,
+        "copper_defective": 26.571428571428573,
+        "copper_good": 62.0,
+        "iron_defective": 1.2156862745098038,
+        "steel_defective": 0.24932975871313673
+    },
+    "test_accuracy": 0.9693877696990967,
+    "test_accuracy_percent": 96.93877696990967,
+    "model": "ResNet50",
+    "pretrained": "ImageNet",
+    "augmentation": true,
+    "class_weighting": true,
+    "two_stage_training": true,
+    "fine_tuning": true,
+    "note": "Test accuracy is saved for training analysis only. It is intentionally not exposed by the application API or inspection PDF."
+}

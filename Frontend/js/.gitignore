@@ -1,0 +1,30 @@
+# Python environment and cache
+
+.venv/
+**pycache**/
+*.py[cod]
+
+# IDE settings
+
+.vscode/
+
+# Secrets
+
+.env
+.env.*
+!.env.example
+
+# Local database and generated files
+
+*.db
+*.sqlite
+*.sqlite3
+reports/
+uploads/
+temp_merge/
+
+# Dataset and archive
+
+Industrial_Metal_Surface_Dataset/
+Frontend_updated.zip
+all_dataset_files.txt

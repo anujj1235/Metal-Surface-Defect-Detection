@@ -1,0 +1,885 @@
+/* ============================================================
+   METAL VISION AI
+   PROFESSIONAL AUTHENTICATION THEME
+   Login + Register
+   ============================================================ */
+
+
+/* ============================================================
+   AUTH PAGE
+   ============================================================ */
+
+.auth-page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(37, 99, 235, 0.18),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 80% 85%,
+            rgba(14, 165, 233, 0.10),
+            transparent 28%
+        ),
+        #07111f;
+}
+
+
+/* ============================================================
+   LEFT BRANDING SECTION
+   ============================================================ */
+
+.auth-brand {
+    position: relative;
+    min-height: 100vh;
+    padding: 48px 70px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #07111f 0%,
+            #0b1b30 52%,
+            #102844 100%
+        );
+
+    border-right: 1px solid rgba(148, 163, 184, 0.15);
+}
+
+
+/* Technical grid */
+
+.auth-brand::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(148, 163, 184, 0.055) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(148, 163, 184, 0.055) 1px,
+            transparent 1px
+        );
+
+    background-size: 42px 42px;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.9),
+            transparent 90%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Blue industrial glow */
+
+.auth-brand::after {
+    content: "";
+    position: absolute;
+
+    width: 480px;
+    height: 480px;
+
+    right: -180px;
+    bottom: -180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.18),
+            transparent 68%
+        );
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   LOGO
+   ============================================================ */
+
+.auth-logo {
+    position: relative;
+    z-index: 2;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+
+    width: fit-content;
+
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+.logo-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #0ea5e9
+        );
+
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+
+    box-shadow:
+        0 8px 25px rgba(37, 99, 235, 0.30);
+}
+
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+
+.logo-main {
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+
+.logo-sub {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #94a3b8;
+}
+
+
+/* ============================================================
+   BRAND CONTENT
+   ============================================================ */
+
+.brand-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 600px;
+
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+.status-badge {
+    width: fit-content;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 8px 13px;
+
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    border-radius: 999px;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: #93c5fd;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #38bdf8;
+
+    box-shadow:
+        0 0 10px rgba(56, 189, 248, 0.8);
+}
+
+
+.brand-content h1 {
+    margin: 24px 0 18px;
+
+    font-size: clamp(42px, 4vw, 64px);
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    color: #f8fafc;
+}
+
+
+.brand-content h1 span {
+    display: block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #60a5fa,
+            #38bdf8
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+
+.brand-content p {
+    max-width: 530px;
+
+    margin: 0;
+
+    color: #a8b7ca;
+
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* ============================================================
+   BRAND FEATURES
+   ============================================================ */
+
+.brand-features {
+    margin-top: 35px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.brand-features div {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+.brand-features div span {
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    background: rgba(37, 99, 235, 0.14);
+
+    border: 1px solid rgba(96, 165, 250, 0.18);
+
+    color: #60a5fa;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+
+/* ============================================================
+   RIGHT FORM SECTION
+   ============================================================ */
+
+.auth-form-section {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px 55px;
+
+    background:
+        radial-gradient(
+            circle at 70% 20%,
+            rgba(37, 99, 235, 0.07),
+            transparent 35%
+        ),
+        #eef3f8;
+}
+
+
+/* ============================================================
+   FORM CONTAINER
+   ============================================================ */
+
+.auth-form-container {
+    width: 100%;
+    max-width: 470px;
+
+    padding: 42px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #f8fafc
+        );
+
+    border: 1px solid #dbe4ee;
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.12),
+        0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+
+/* ============================================================
+   MOBILE LOGO / BACK
+   ============================================================ */
+
+.mobile-logo {
+    display: none;
+
+    margin-bottom: 25px;
+
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   FORM HEADING
+   ============================================================ */
+
+.form-heading {
+    margin-bottom: 32px;
+}
+
+
+.form-heading > span {
+    color: #2563eb;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.8px;
+}
+
+
+.form-heading h2 {
+    margin: 9px 0 7px;
+
+    color: #0f172a;
+
+    font-size: 31px;
+    line-height: 1.2;
+
+    letter-spacing: -0.7px;
+}
+
+
+.form-heading p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* ============================================================
+   FORM GROUP
+   ============================================================ */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #334155;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.form-group input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+
+    background: #f8fafc;
+
+    color: #0f172a;
+
+    font-family: inherit;
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.form-group input::placeholder {
+    color: #94a3b8;
+}
+
+
+.form-group input:hover {
+    border-color: #94a3b8;
+}
+
+
+.form-group input:focus {
+    border-color: #3b82f6;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 3px rgba(59, 130, 246, 0.10);
+}
+
+
+/* ============================================================
+   TWO COLUMN FORM
+   ============================================================ */
+
+.form-row {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+
+/* ============================================================
+   LOGIN OPTIONS
+   ============================================================ */
+
+.login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 4px 0 24px;
+
+    color: #64748b;
+
+    font-size: 11px;
+}
+
+
+.login-options label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    cursor: pointer;
+}
+
+
+.login-options input {
+    width: 14px;
+    height: 14px;
+
+    accent-color: #2563eb;
+}
+
+
+.login-options span {
+    color: #2563eb;
+
+    font-weight: 700;
+}
+
+
+/* ============================================================
+   TERMS
+   ============================================================ */
+
+.terms {
+    margin: 3px 0 22px;
+}
+
+
+.terms label {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+
+    cursor: pointer;
+
+    color: #64748b;
+
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+.terms input {
+    flex-shrink: 0;
+
+    width: 14px;
+    height: 14px;
+
+    margin-top: 2px;
+
+    accent-color: #2563eb;
+}
+
+
+/* ============================================================
+   SUBMIT BUTTON
+   ============================================================ */
+
+.auth-submit {
+    width: 100%;
+
+    min-height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    border: none;
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #1d4ed8
+        );
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 0.2px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 22px rgba(37, 99, 235, 0.22);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.auth-submit span {
+    font-size: 18px;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+.auth-submit:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 28px rgba(37, 99, 235, 0.30);
+
+    background:
+        linear-gradient(
+            135deg,
+            #1d4ed8,
+            #1e40af
+        );
+}
+
+
+.auth-submit:hover span {
+    transform: translateX(4px);
+}
+
+
+.auth-submit:active {
+    transform: translateY(0);
+}
+
+
+/* ============================================================
+   MESSAGE
+   ============================================================ */
+
+.auth-message {
+    min-height: 18px;
+
+    margin-top: 13px;
+
+    text-align: center;
+
+    color: #dc2626;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+
+.form-divider {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    margin: 28px 0 20px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    text-align: center;
+}
+
+
+.form-divider::before,
+.form-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: #e2e8f0;
+}
+
+
+.form-divider span {
+    padding: 0 13px;
+}
+
+
+/* ============================================================
+   SWITCH AUTH
+   ============================================================ */
+
+.switch-auth {
+    width: 100%;
+
+    min-height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+
+    background: #ffffff;
+
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.switch-auth:hover {
+    background: #eff6ff;
+
+    border-color: #93c5fd;
+
+    transform: translateY(-1px);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+    .auth-page {
+        grid-template-columns: 1fr;
+    }
+
+
+    .auth-brand {
+        min-height: 360px;
+
+        padding: 35px 45px;
+    }
+
+
+    .brand-content {
+        margin-top: 70px;
+        margin-bottom: 20px;
+    }
+
+
+    .brand-content h1 {
+        font-size: 42px;
+    }
+
+
+    .brand-content p {
+        font-size: 14px;
+    }
+
+
+    .auth-form-section {
+        min-height: auto;
+
+        padding: 45px 25px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .auth-brand {
+        min-height: 300px;
+
+        padding: 25px;
+    }
+
+
+    .logo-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+
+    .logo-main {
+        font-size: 15px;
+    }
+
+
+    .logo-sub {
+        font-size: 8px;
+    }
+
+
+    .brand-content {
+        margin-top: 50px;
+    }
+
+
+    .brand-content h1 {
+        margin-top: 18px;
+
+        font-size: 34px;
+
+        letter-spacing: -1px;
+    }
+
+
+    .brand-content p {
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+
+    .brand-features {
+        margin-top: 22px;
+        gap: 10px;
+    }
+
+
+    .brand-features div {
+        font-size: 11px;
+    }
+
+
+    .auth-form-section {
+        padding: 25px 15px;
+    }
+
+
+    .auth-form-container {
+        padding: 28px 22px;
+
+        border-radius: 14px;
+    }
+
+
+    .mobile-logo {
+        display: block;
+    }
+
+
+    .form-heading h2 {
+        font-size: 27px;
+    }
+
+
+    .form-row {
+        grid-template-columns: 1fr;
+
+        gap: 0;
+    }
+
+}

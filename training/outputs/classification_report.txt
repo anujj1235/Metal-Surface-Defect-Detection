@@ -1,0 +1,15 @@
+Industrial Metal Surface Defect Detection
+Classification Report
+
+                     precision    recall  f1-score   support
+
+aluminium_defective       0.88      0.94      0.91        16
+     aluminium_good       1.00      0.50      0.67         2
+   copper_defective       0.00      0.00      0.00         0
+        copper_good       0.00      0.00      0.00         0
+     iron_defective       1.00      1.00      1.00        14
+    steel_defective       1.00      0.98      0.99        66
+
+           accuracy                           0.97        98
+          macro avg       0.65      0.57      0.59        98
+       weighted avg       0.98      0.97      0.97        98

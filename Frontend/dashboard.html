@@ -1,0 +1,4516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Metal Vision AI</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    >
+
+    <style>
+
+        /* =========================================================
+           METAL VISION AI — PROFESSIONAL INDUSTRIAL DASHBOARD
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body.dashboard-page {
+            background: #f3f6fa;
+            background-image:
+                radial-gradient(
+                    circle at 85% 5%,
+                    rgba(20, 110, 245, 0.045),
+                    transparent 28%
+                );
+
+            color: #162235;
+
+            font-family:
+                'Inter',
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                'Segoe UI',
+                Roboto,
+                sans-serif;
+
+            display: flex;
+            min-height: 100vh;
+
+            line-height: 1.4;
+        }
+
+
+        /* =========================================================
+           SIDEBAR
+        ========================================================= */
+
+        .sidebar {
+            position: fixed;
+
+            left: 0;
+            top: 0;
+
+            width: 260px;
+            height: 100vh;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f9fbfd 100%
+                );
+
+            border-right: 1px solid #dce4ed;
+
+            display: flex;
+            flex-direction: column;
+
+            z-index: 1000;
+
+            box-shadow:
+                8px 0 30px rgba(31, 54, 82, 0.035);
+
+            transition: transform 0.25s ease;
+        }
+
+
+        .sidebar-logo {
+            height: 92px;
+
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            padding: 0 24px;
+
+            border-bottom: 1px solid #e7edf4;
+
+            text-decoration: none;
+
+            color: inherit;
+
+            transition: background 0.2s;
+        }
+
+        .sidebar-logo:hover {
+            background: #f2f8ff;
+        }
+
+
+        .logo-mark {
+            width: 43px;
+            height: 43px;
+
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #146ef5,
+                    #084fae
+                );
+
+            color: white;
+
+            font-size: 13px;
+            font-weight: 800;
+
+            box-shadow:
+                0 8px 20px rgba(20, 110, 245, 0.25);
+
+            transition:
+                box-shadow 0.2s,
+                transform 0.2s;
+        }
+
+        .sidebar-logo:hover .logo-mark {
+            box-shadow:
+                0 12px 26px rgba(20, 110, 245, 0.35);
+
+            transform: scale(1.02);
+        }
+
+
+        .sidebar-logo h2 {
+            font-size: 14px;
+            font-weight: 800;
+
+            letter-spacing: 0.5px;
+
+            margin: 0;
+        }
+
+        .sidebar-logo span {
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 8px;
+            font-weight: 700;
+
+            letter-spacing: 1.7px;
+
+            color: #8290a3;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        .sidebar-nav {
+            padding: 22px 13px;
+
+            flex: 1;
+
+            overflow-y: auto;
+        }
+
+
+        .nav-item {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            width: 100%;
+
+            padding: 12px 14px;
+
+            margin-bottom: 5px;
+
+            border-radius: 9px;
+
+            text-decoration: none;
+
+            color: #637083;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition:
+                background 0.2s,
+                color 0.2s,
+                transform 0.2s,
+                box-shadow 0.2s;
+        }
+
+        .nav-item i {
+            width: 20px;
+
+            text-align: center;
+
+            font-size: 16px;
+
+            opacity: 0.9;
+        }
+
+        .nav-item:hover {
+            background: #f0f5fb;
+
+            color: #146ef5;
+
+            transform: translateX(4px);
+
+            box-shadow:
+                0 4px 12px rgba(20, 110, 245, 0.08);
+        }
+
+        .nav-item.active {
+            background:
+                linear-gradient(
+                    90deg,
+                    #e8f1ff,
+                    #f1f6ff
+                );
+
+            color: #146ef5;
+
+            box-shadow:
+                inset 3px 0 0 #146ef5,
+                0 4px 12px rgba(20, 110, 245, 0.08);
+        }
+
+
+        .nav-section-title {
+            padding: 21px 14px 9px;
+
+            font-size: 9px;
+            font-weight: 800;
+
+            letter-spacing: 1.6px;
+
+            color: #a0aaba;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================================
+           SIDEBAR BOTTOM
+        ========================================================= */
+
+        .sidebar-bottom {
+            padding: 14px;
+
+            border-top: 1px solid #e7edf4;
+        }
+
+
+        .logout-btn {
+            width: 100%;
+
+            display: flex;
+            align-items: center;
+
+            gap: 13px;
+
+            border: none;
+
+            background: transparent;
+
+            padding: 12px 14px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            color: #637083;
+
+            font-family: inherit;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            text-align: left;
+
+            transition:
+                background 0.2s,
+                color 0.2s,
+                transform 0.2s,
+                box-shadow 0.2s;
+        }
+
+        .logout-btn i {
+            width: 20px;
+
+            text-align: center;
+
+            font-size: 16px;
+        }
+
+        .logout-btn:hover {
+            background: #fff0f0;
+
+            color: #dc4d4d;
+
+            transform: translateX(4px);
+
+            box-shadow:
+                0 4px 12px rgba(220, 77, 77, 0.12);
+        }
+
+
+        /* =========================================================
+           MAIN AREA
+        ========================================================= */
+
+        .dashboard-main {
+            margin-left: 260px;
+
+            flex: 1;
+
+            min-height: 100vh;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* =========================================================
+           TOPBAR
+        ========================================================= */
+
+        .dashboard-topbar {
+            height: 92px;
+
+            background: rgba(255, 255, 255, 0.94);
+
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid #dfe6ef;
+
+            padding: 0 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 100;
+
+            box-shadow:
+                0 3px 20px rgba(35, 58, 84, 0.025);
+        }
+
+
+        .mobile-menu-btn {
+            display: none;
+
+            border: 1px solid #dce4ed;
+
+            background: white;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 9px;
+
+            cursor: pointer;
+
+            font-size: 18px;
+
+            transition:
+                background 0.2s,
+                box-shadow 0.2s,
+                transform 0.2s;
+        }
+
+        .mobile-menu-btn:hover {
+            background: #f0f5fb;
+
+            box-shadow:
+                0 6px 16px rgba(20, 110, 245, 0.12);
+
+            transform: scale(1.02);
+        }
+
+
+        .topbar-title .page-label {
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.6px;
+
+            color: #7d8a9c;
+        }
+
+
+        .topbar-title h1 {
+            margin: 5px 0 0;
+
+            font-size: 23px;
+
+            letter-spacing: -0.6px;
+
+            color: #172438;
+        }
+
+
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+
+            gap: 22px;
+        }
+
+
+        .notification-btn {
+            position: relative;
+
+            border: 1px solid #e0e7ef;
+
+            background: #f8fafc;
+
+            width: 40px;
+            height: 40px;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            transition:
+                background 0.2s,
+                border-color 0.2s,
+                transform 0.2s,
+                box-shadow 0.2s;
+        }
+
+        .notification-btn:hover {
+            background: #eef4fb;
+
+            border-color: #cddaea;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 18px rgba(20, 110, 245, 0.15);
+        }
+
+
+        .notification-dot {
+            position: absolute;
+
+            right: 7px;
+            top: 6px;
+
+            width: 7px;
+            height: 7px;
+
+            background: #41b96d;
+
+            border-radius: 50%;
+
+            border: 2px solid white;
+        }
+
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+
+            padding-left: 14px;
+
+            border-left: 1px solid #e3e9f0;
+        }
+
+
+        .user-avatar {
+            width: 39px;
+            height: 39px;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #e9f2ff,
+                    #dceaff
+                );
+
+            border: 1px solid #cfe0f7;
+
+            color: #146ef5;
+
+            font-weight: 800;
+
+            font-size: 13px;
+
+            cursor: pointer;
+        }
+
+
+        .user-info strong {
+            display: block;
+
+            font-size: 12px;
+
+            color: #26364b;
+        }
+
+        .user-info span {
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 9px;
+
+            color: #8b97a7;
+        }
+
+
+        /* =========================================================
+           CONTENT
+        ========================================================= */
+
+        .dashboard-content {
+            width: 100%;
+
+            max-width: 1540px;
+
+            margin: 0 auto;
+
+            padding: 34px 36px 50px;
+        }
+
+
+        /* =========================================================
+           WELCOME BANNER
+        ========================================================= */
+
+        .welcome-banner {
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 30px 32px;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #ffffff 0%,
+                    #f2f7ff 65%,
+                    #eaf3ff 100%
+                );
+
+            border: 1px solid #d8e5f5;
+
+            box-shadow:
+                0 12px 35px rgba(37, 72, 112, 0.065);
+
+            margin-bottom: 38px;
+        }
+
+
+        .welcome-banner::after {
+            content: "";
+
+            position: absolute;
+
+            right: -70px;
+            top: -80px;
+
+            width: 220px;
+            height: 220px;
+
+            border-radius: 50%;
+
+            border: 30px solid rgba(20, 110, 245, 0.035);
+
+            pointer-events: none;
+        }
+
+
+        .welcome-text {
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .welcome-label {
+            display: block;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.6px;
+
+            color: #7d8a9c;
+        }
+
+
+        .welcome-text h2 {
+            margin: 8px 0;
+
+            font-size: 25px;
+
+            letter-spacing: -0.7px;
+        }
+
+
+        .welcome-text h2 span {
+            color: #146ef5;
+        }
+
+
+        .welcome-text p {
+            margin: 0;
+
+            max-width: 680px;
+
+            color: #68778b;
+
+            font-size: 12px;
+
+            line-height: 1.75;
+        }
+
+
+        .primary-dashboard-btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 13px 20px;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #146ef5,
+                    #0957c5
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 9px 22px rgba(20, 110, 245, 0.24);
+
+            transition:
+                transform 0.2s,
+                box-shadow 0.2s;
+        }
+
+        .primary-dashboard-btn:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 14px 32px rgba(20, 110, 245, 0.38);
+        }
+
+
+        /* =========================================================
+           SECTION HEADER
+        ========================================================= */
+
+        .dashboard-section-header {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            margin-bottom: 17px;
+        }
+
+
+        .section-label {
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.6px;
+
+            color: #7d8a9c;
+        }
+
+
+        .dashboard-section-header h2 {
+            margin: 5px 0 0;
+
+            font-size: 17px;
+
+            color: #1c2b3f;
+        }
+
+
+        .live-status {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            color: #318052;
+
+            background: #edf9f2;
+
+            border: 1px solid #d8efdf;
+
+            padding: 7px 11px;
+
+            border-radius: 20px;
+        }
+
+
+        .live-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: #41b96d;
+
+            box-shadow:
+                0 0 0 4px rgba(65, 185, 109, 0.10);
+        }
+
+
+        /* =========================================================
+           STAT CARDS
+        ========================================================= */
+
+        .stats-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 17px;
+
+            margin-bottom: 34px;
+        }
+
+
+        .stat-card {
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #fbfcfe
+                );
+
+            border: 1px solid #dde5ee;
+
+            border-radius: 14px;
+
+            padding: 20px;
+
+            box-shadow:
+                0 6px 22px rgba(40, 65, 95, 0.045);
+
+            transition:
+                transform 0.25s,
+                box-shadow 0.25s,
+                border-color 0.25s;
+        }
+
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #b8d0f0;
+
+            box-shadow:
+                0 18px 40px rgba(20, 110, 245, 0.14);
+        }
+
+
+        .stat-card-top {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 15px;
+        }
+
+
+        .stat-icon {
+            width: 39px;
+            height: 39px;
+
+            border-radius: 10px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-weight: 800;
+        }
+
+
+        .stat-icon.blue {
+            background: #e8f1ff;
+            color: #146ef5;
+        }
+
+        .stat-icon.red {
+            background: #fff0f0;
+            color: #df4d4d;
+        }
+
+        .stat-icon.green {
+            background: #e9f8ef;
+            color: #36a162;
+        }
+
+        .stat-icon.purple {
+            background: #f0edff;
+            color: #7257d9;
+        }
+
+
+        .stat-period {
+            font-size: 8px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.1px;
+
+            color: #99a4b3;
+        }
+
+
+        .stat-value {
+            font-size: 28px;
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+
+            margin-bottom: 3px;
+
+            color: #17263a;
+        }
+
+
+        .stat-label {
+            font-size: 11px;
+
+            color: #68778b;
+        }
+
+
+        .stat-footer {
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            margin-top: 14px;
+
+            font-size: 9px;
+
+            font-weight: 600;
+        }
+
+
+        .stat-footer.positive {
+            color: #3c9560;
+        }
+
+        .stat-footer.warning {
+            color: #d08332;
+        }
+
+
+        /* =========================================================
+           DASHBOARD GRID
+        ========================================================= */
+
+        .dashboard-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.7fr)
+                minmax(310px, 0.9fr);
+
+            gap: 20px;
+
+            margin-bottom: 22px;
+        }
+
+
+        .dashboard-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #fcfdff
+                );
+
+            border: 1px solid #dde5ee;
+
+            border-radius: 14px;
+
+            box-shadow:
+                0 6px 22px rgba(40, 65, 95, 0.04);
+
+            transition:
+                box-shadow 0.25s,
+                border-color 0.25s;
+        }
+
+
+        .dashboard-card:hover {
+            border-color: #c8daf0;
+
+            box-shadow:
+                0 12px 30px rgba(20, 110, 245, 0.10);
+        }
+
+
+        .card-header {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 20px 21px;
+
+            border-bottom: 1px solid #e9eef4;
+        }
+
+
+        .card-header h3 {
+            margin: 5px 0 0;
+
+            font-size: 15px;
+
+            color: #25344a;
+        }
+
+
+        .view-all-btn {
+            font-size: 10px;
+
+            font-weight: 700;
+
+            color: #146ef5;
+
+            text-decoration: none;
+
+            padding: 6px 8px;
+
+            border-radius: 6px;
+        }
+
+
+        .view-all-btn:hover {
+            background: #edf4ff;
+        }
+
+
+        /* =========================================================
+           TABLE
+        ========================================================= */
+
+        .recent-card {
+            overflow: hidden;
+        }
+
+
+        .table-wrapper {
+            width: 100%;
+
+            overflow-x: auto;
+        }
+
+
+        .inspection-table {
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 720px;
+        }
+
+
+        .inspection-table th {
+            text-align: left;
+
+            padding: 12px 17px;
+
+            font-size: 8px;
+
+            font-weight: 800;
+
+            color: #8a96a7;
+
+            letter-spacing: 0.8px;
+
+            text-transform: uppercase;
+
+            background: #f8fafc;
+        }
+
+
+        .inspection-table td {
+            padding: 14px 17px;
+
+            border-top: 1px solid #edf1f5;
+
+            font-size: 10px;
+
+            color: #677487;
+        }
+
+
+        .inspection-table tbody tr:hover {
+            background: #f8fbff;
+
+            box-shadow:
+                inset 3px 0 0 #146ef5;
+        }
+
+
+        .inspection-table td strong {
+            color: #243248;
+
+            font-size: 10px;
+        }
+
+
+        .defect-name {
+            color: #35435a;
+
+            font-weight: 600;
+        }
+
+
+        .confidence-cell {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+        }
+
+
+        .confidence-bar {
+            width: 58px;
+            height: 5px;
+
+            background: #e8edf3;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+
+        .confidence-bar span {
+            display: block;
+
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #4c9aff,
+                    #146ef5
+                );
+
+            border-radius: inherit;
+        }
+
+
+        .confidence-text {
+            font-size: 9px;
+
+            font-weight: 700;
+
+            color: #536176;
+        }
+
+
+        .status-badge {
+            display: inline-flex;
+
+            padding: 5px 8px;
+
+            border-radius: 20px;
+
+            font-size: 8px;
+
+            font-weight: 800;
+        }
+
+
+        .status-badge.defective {
+            color: #d84c4c;
+
+            background: #fff0f0;
+
+            border: 1px solid #f8dada;
+        }
+
+
+        .status-badge.normal {
+            color: #34955c;
+
+            background: #eaf9f0;
+
+            border: 1px solid #d6efdf;
+        }
+
+
+        .empty-table {
+            text-align: center;
+
+            padding: 35px !important;
+
+            color: #8995a6 !important;
+        }
+
+
+        /* =========================================================
+           ANALYTICS
+        ========================================================= */
+
+        .analytics-content {
+            padding: 23px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 24px;
+        }
+
+
+        .donut-chart {
+            width: 150px;
+            height: 150px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background:
+                conic-gradient(
+                    #146ef5 0 50%,
+                    #49a5e8 50% 75%,
+                    #d8e0e9 75% 100%
+                );
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+
+            transition: transform 0.3s;
+        }
+
+
+        .donut-chart::after {
+            content: "";
+
+            width: 94px;
+            height: 94px;
+
+            background: #ffffff;
+
+            border-radius: 50%;
+
+            position: absolute;
+        }
+
+
+        .donut-center {
+            position: relative;
+
+            z-index: 2;
+
+            text-align: center;
+        }
+
+
+        .donut-center strong {
+            display: block;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            color: #1c2b3e;
+        }
+
+
+        .donut-center span {
+            font-size: 9px;
+
+            color: #8995a6;
+        }
+
+
+        .analytics-legend {
+            flex: 1;
+        }
+
+
+        .legend-item {
+            display: grid;
+
+            grid-template-columns:
+                10px 1fr auto;
+
+            gap: 8px;
+
+            align-items: center;
+
+            margin-bottom: 13px;
+
+            font-size: 9px;
+
+            color: #667387;
+
+            padding: 4px 6px;
+
+            border-radius: 6px;
+        }
+
+
+        .legend-item strong {
+            color: #28364a;
+        }
+
+
+        .legend-color {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+        }
+
+
+        .color-defective {
+            background: #146ef5;
+        }
+
+        .color-good {
+            background: #49a5e8;
+        }
+
+        .color-other {
+            background: #cbd5e1;
+        }
+
+
+        /* =========================================================
+           MODEL CARD
+        ========================================================= */
+
+        .model-card {
+            padding: 24px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
+
+            margin-bottom: 32px;
+        }
+
+
+        .model-info {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+            max-width: 650px;
+        }
+
+
+        .model-icon {
+            width: 43px;
+            height: 43px;
+
+            flex-shrink: 0;
+
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #edf4ff,
+                    #e4efff
+                );
+
+            color: #146ef5;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-size: 18px;
+
+            border: 1px solid #d7e5f7;
+        }
+
+
+        .model-info h3 {
+            margin: 6px 0;
+
+            font-size: 15px;
+
+            color: #26364b;
+        }
+
+
+        .model-info p {
+            margin: 0;
+
+            font-size: 10px;
+
+            line-height: 1.7;
+
+            color: #778397;
+        }
+
+
+        .model-metrics {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 22px;
+
+            text-align: center;
+        }
+
+
+        .model-metrics div {
+            min-width: 72px;
+
+            padding: 6px 8px;
+
+            border-radius: 10px;
+        }
+
+
+        .model-metrics strong {
+            display: block;
+
+            font-size: 15px;
+
+            color: #1e2c40;
+        }
+
+
+        .model-metrics span {
+            display: block;
+
+            margin-top: 4px;
+
+            font-size: 8px;
+
+            color: #8995a6;
+        }
+
+
+        /* =========================================================
+           QUICK ACTIONS
+        ========================================================= */
+
+        .quick-header {
+            margin-bottom: 15px;
+        }
+
+
+        .quick-actions {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 17px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .quick-action-card {
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            padding: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #ffffff,
+                    #fbfcfe
+                );
+
+            border: 1px solid #dde5ee;
+
+            border-radius: 13px;
+
+            text-decoration: none;
+
+            color: inherit;
+
+            transition:
+                transform 0.25s,
+                box-shadow 0.25s,
+                border-color 0.25s;
+        }
+
+
+        .quick-action-card:hover {
+            transform: translateY(-5px);
+
+            border-color: #b8d0f0;
+
+            box-shadow:
+                0 18px 40px rgba(20, 110, 245, 0.16);
+        }
+
+
+        .quick-icon {
+            width: 41px;
+            height: 41px;
+
+            flex-shrink: 0;
+
+            border-radius: 10px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            font-weight: 800;
+        }
+
+
+        .quick-icon.blue {
+            background: #eaf2ff;
+            color: #146ef5;
+        }
+
+        .quick-icon.purple {
+            background: #f1edff;
+            color: #7457dc;
+        }
+
+        .quick-icon.green {
+            background: #eaf9f0;
+            color: #36a262;
+        }
+
+
+        .quick-action-card h3 {
+            margin: 0 0 4px;
+
+            font-size: 12px;
+
+            color: #27364b;
+        }
+
+
+        .quick-action-card p {
+            margin: 0;
+
+            font-size: 9px;
+
+            color: #7a8799;
+
+            line-height: 1.5;
+        }
+
+
+        .quick-arrow {
+            margin-left: auto;
+
+            color: #9aa6b5;
+
+            font-size: 17px;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .dashboard-footer {
+            padding: 20px 36px;
+
+            border-top: 1px solid #dfe6ef;
+
+            background: #ffffff;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            font-size: 9px;
+
+            color: #8995a6;
+        }
+
+
+        /* =========================================================
+           AI ASSISTANT
+        ========================================================= */
+
+        .dashboard-ai-btn {
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 24px;
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #146ef5,
+                    #0958c8
+                );
+
+            color: white;
+
+            padding: 12px 17px;
+
+            border-radius: 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            font-family: inherit;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 12px 30px rgba(20, 110, 245, 0.30);
+
+            z-index: 1500;
+        }
+
+
+        .dashboard-chatbot {
+            position: fixed;
+
+            right: 25px;
+
+            bottom: 80px;
+
+            width: 340px;
+
+            background: white;
+
+            border-radius: 16px;
+
+            border: 1px solid #dbe4ee;
+
+            box-shadow:
+                0 22px 60px rgba(25, 50, 80, 0.18);
+
+            overflow: hidden;
+
+            display: none;
+
+            z-index: 1600;
+        }
+
+
+        .dashboard-chatbot.open {
+            display: block;
+        }
+
+
+        .chatbot-header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #146ef5,
+                    #0958c8
+                );
+
+            color: white;
+
+            padding: 15px 17px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .chatbot-header strong {
+            display: block;
+
+            font-size: 12px;
+        }
+
+
+        .chatbot-header span {
+            display: block;
+
+            margin-top: 3px;
+
+            font-size: 8px;
+
+            opacity: 0.85;
+        }
+
+
+        .chatbot-header button {
+            border: none;
+
+            background: rgba(255, 255, 255, 0.10);
+
+            color: white;
+
+            width: 28px;
+            height: 28px;
+
+            border-radius: 7px;
+
+            font-size: 19px;
+
+            cursor: pointer;
+        }
+
+
+        .chatbot-body {
+            height: 270px;
+
+            overflow-y: auto;
+
+            padding: 15px;
+
+            background: #f6f9fc;
+        }
+
+
+        .chat-message {
+            max-width: 85%;
+
+            padding: 9px 11px;
+
+            border-radius: 10px;
+
+            font-size: 10px;
+
+            line-height: 1.6;
+
+            margin-bottom: 10px;
+        }
+
+
+        .chat-message.bot {
+            background: white;
+
+            border: 1px solid #e1e8ef;
+
+            color: #59677a;
+        }
+
+
+        .chat-message.user {
+            margin-left: auto;
+
+            background: #eaf2ff;
+
+            border: 1px solid #d4e4fa;
+
+            color: #31557e;
+        }
+
+
+        .chatbot-input {
+            display: flex;
+
+            padding: 10px;
+
+            border-top: 1px solid #e1e7ee;
+
+            background: white;
+        }
+
+
+        .chatbot-input input {
+            flex: 1;
+
+            border: 1px solid #e1e7ee;
+
+            border-radius: 8px;
+
+            outline: none;
+
+            font-family: inherit;
+
+            font-size: 10px;
+
+            padding: 8px 10px;
+        }
+
+
+        .chatbot-input button {
+            width: 34px;
+
+            height: 34px;
+
+            margin-left: 6px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #146ef5;
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1150px) {
+
+            .sidebar {
+                width: 220px;
+            }
+
+            .dashboard-main {
+                margin-left: 220px;
+            }
+
+            .stats-grid {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .model-card {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+            .model-metrics {
+                width: 100%;
+            }
+
+            .quick-actions {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+        }
+
+
+        @media (max-width: 800px) {
+
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+
+            .dashboard-main {
+                margin-left: 0;
+            }
+
+            .dashboard-topbar {
+                padding: 0 20px;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .topbar-title {
+                margin-right: auto;
+            }
+
+            .user-info {
+                display: none;
+            }
+
+            .user-profile {
+                border-left: none;
+
+                padding-left: 0;
+            }
+
+            .dashboard-content {
+                padding: 24px 18px 40px;
+            }
+
+            .welcome-banner {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                gap: 20px;
+            }
+
+            .dashboard-footer {
+                padding: 18px;
+
+                flex-direction: column;
+
+                gap: 5px;
+            }
+        }
+
+
+        @media (max-width: 550px) {
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-section-header {
+                align-items: flex-start;
+
+                gap: 10px;
+
+                flex-direction: column;
+            }
+
+            .analytics-content {
+                flex-direction: column;
+            }
+
+            .model-metrics {
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                row-gap: 18px;
+            }
+
+            .dashboard-chatbot {
+                left: 15px;
+
+                right: 15px;
+
+                width: auto;
+            }
+
+            .dashboard-ai-btn {
+                right: 15px;
+
+                bottom: 15px;
+            }
+
+            .welcome-text h2 {
+                font-size: 21px;
+            }
+
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        /* =========================================================
+           LOADING
+        ========================================================= */
+
+        .loading-row {
+            text-align: center;
+
+            padding: 30px !important;
+
+            color: #8995a6 !important;
+        }
+
+
+        .loading-spinner {
+            display: inline-block;
+
+            width: 18px;
+            height: 18px;
+
+            border: 2px solid #dce8f8;
+
+            border-top-color: #146ef5;
+
+            border-radius: 50%;
+
+            animation: spin 0.8s linear infinite;
+
+            vertical-align: middle;
+
+            margin-right: 8px;
+        }
+
+
+        @keyframes spin {
+
+            to {
+                transform: rotate(360deg);
+            }
+
+        }
+
+
+        .error-message {
+            color: #d84c4c;
+
+            background: #fff4f4;
+
+            border: 1px solid #f3d5d5;
+
+            border-radius: 8px;
+
+            padding: 12px;
+
+            margin-top: 10px;
+
+            font-size: 10px;
+        }
+
+    </style>
+</head>
+
+
+<body class="dashboard-page">
+
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <a href="index.html" class="sidebar-logo">
+
+            <div class="logo-mark">
+                <span>MV</span>
+            </div>
+
+            <div>
+                <h2>METAL VISION</h2>
+                <span>AI INSPECTION</span>
+            </div>
+
+        </a>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item active">
+                <i class="fas fa-th-large"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a href="inspection.html" class="nav-item">
+                <i class="fas fa-search"></i>
+                <span>New Inspection</span>
+            </a>
+
+
+            <a href="history.html" class="nav-item">
+                <i class="fas fa-history"></i>
+                <span>Inspection History</span>
+            </a>
+
+
+            <div class="nav-section-title">
+                Analytics
+            </div>
+
+
+            <a href="#analytics" class="nav-item">
+                <i class="fas fa-chart-pie"></i>
+                <span>Inspection Analytics</span>
+            </a>
+
+
+            <a href="#model" class="nav-item">
+                <i class="fas fa-microchip"></i>
+                <span>AI Model</span>
+            </a>
+
+
+            <div class="nav-section-title">
+                Support
+            </div>
+
+
+            <a href="faq.html" class="nav-item">
+                <i class="fas fa-question-circle"></i>
+                <span>FAQ</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="index.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+                type="button"
+            >
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================= -->
+
+    <main class="dashboard-main">
+
+
+        <!-- TOPBAR -->
+
+        <header class="dashboard-topbar">
+
+            <button
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+                type="button"
+            >
+                <i class="fas fa-bars"></i>
+            </button>
+
+
+            <div class="topbar-title">
+
+                <span class="page-label">
+                    AI INSPECTION SYSTEM
+                </span>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <button
+                    class="notification-btn"
+                    title="System Status"
+                    type="button"
+                    id="systemStatusBtn"
+                >
+                    <i class="fas fa-circle-check"></i>
+
+                    <span class="notification-dot"></span>
+                </button>
+
+
+                <div class="user-profile">
+
+                    <div
+                        class="user-avatar"
+                        id="userAvatar"
+                    >
+                        U
+                    </div>
+
+
+                    <div class="user-info">
+
+                        <strong id="dashboardUserName">
+                            User
+                        </strong>
+
+                        <span>
+                            Inspector
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================================
+             CONTENT
+        ===================================================== -->
+
+        <section class="dashboard-content">
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome-banner">
+
+                <div class="welcome-text">
+
+                    <span class="welcome-label">
+                        METAL SURFACE INSPECTION
+                    </span>
+
+
+                    <h2>
+                        Welcome back,
+                        <span id="welcomeUserName">
+                            User
+                        </span>
+                        👋
+                    </h2>
+
+
+                    <p>
+                        Monitor inspection activity, review detected
+                        surface defects and track your AI-powered
+                        industrial inspection results.
+                    </p>
+
+                </div>
+
+
+                <div class="welcome-action">
+
+                    <a
+                        href="inspection.html"
+                        class="primary-dashboard-btn"
+                    >
+                        <i class="fas fa-plus"></i>
+                        New Inspection
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 OVERVIEW
+            ================================================= -->
+
+            <div class="dashboard-section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        INSPECTION OVERVIEW
+                    </span>
+
+                    <h2>
+                        System Statistics
+                    </h2>
+
+                </div>
+
+
+                <span class="live-status">
+
+                    <span class="live-dot"></span>
+
+                    <span id="systemStatusText">
+                        System Online
+                    </span>
+
+                </span>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 KPI CARDS
+            ================================================= -->
+
+            <div class="stats-grid">
+
+
+                <!-- TOTAL -->
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon blue">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+
+                        <span class="stat-period">
+                            ALL TIME
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="stat-value"
+                        id="totalInspections"
+                    >
+                        0
+                    </div>
+
+
+                    <div class="stat-label">
+                        Total Inspections
+                    </div>
+
+
+                    <div class="stat-footer positive">
+
+                        <i class="fas fa-database"></i>
+
+                        Live database data
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- DEFECTIVE -->
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon red">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+
+                        <span class="stat-period">
+                            DETECTED
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="stat-value"
+                        id="defectiveInspections"
+                    >
+                        0
+                    </div>
+
+
+                    <div class="stat-label">
+                        Defective Surfaces
+                    </div>
+
+
+                    <div class="stat-footer warning">
+
+                        <i class="fas fa-exclamation-circle"></i>
+
+                        Surface Defect
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- GOOD -->
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon green">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+
+                        <span class="stat-period">
+                            VERIFIED
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="stat-value"
+                        id="goodInspections"
+                    >
+                        0
+                    </div>
+
+
+                    <div class="stat-label">
+                        No Defect Results
+                    </div>
+
+
+                    <div class="stat-footer positive">
+
+                        <i class="fas fa-check"></i>
+
+                        No Defect
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CONFIDENCE -->
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+
+                        <div class="stat-icon purple">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+
+                        <span class="stat-period">
+                            ANALYSIS
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat-value">
+
+                        <span id="avgConfidence">
+                            0
+                        </span>%
+
+                    </div>
+
+
+                    <div class="stat-label">
+                        Average Confidence
+                    </div>
+
+
+                    <div class="stat-footer positive">
+
+                        <i class="fas fa-calculator"></i>
+
+                        Based on inspections
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RECENT + ANALYTICS
+            ================================================= -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- RECENT INSPECTIONS -->
+
+                <div class="dashboard-card recent-card">
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                INSPECTION LOG
+                            </span>
+
+                            <h3>
+                                Recent Inspections
+                            </h3>
+
+                        </div>
+
+
+                        <a
+                            href="history.html"
+                            class="view-all-btn"
+                        >
+                            View All
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table class="inspection-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>
+                                        Inspection ID
+                                    </th>
+
+                                    <th>
+                                        Metal
+                                    </th>
+
+                                    <th>
+                                        Result
+                                    </th>
+
+                                    <th>
+                                        Confidence
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Date
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="recentInspectionTable">
+
+                                <tr>
+
+                                    <td
+                                        colspan="6"
+                                        class="loading-row"
+                                    >
+
+                                        <span class="loading-spinner"></span>
+
+                                        Loading inspections...
+
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ANALYTICS -->
+
+                <div
+                    class="dashboard-card analytics-card"
+                    id="analytics"
+                >
+
+                    <div class="card-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                RESULT DISTRIBUTION
+                            </span>
+
+                            <h3>
+                                Inspection Analytics
+                            </h3>
+
+                        </div>
+
+                        <span class="analytics-period">
+                            Live Data
+                        </span>
+
+                    </div>
+
+
+                    <div class="analytics-content">
+
+
+                        <div
+                            class="donut-chart"
+                            id="donutChart"
+                        >
+
+                            <div class="donut-center">
+
+                                <strong id="defectCount">
+                                    0
+                                </strong>
+
+                                <span>
+                                    Defective
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="analytics-legend">
+
+
+                            <div class="legend-item">
+
+                                <span
+                                    class="legend-color color-defective"
+                                ></span>
+
+                                <span>
+                                    Surface Defect
+                                </span>
+
+                                <strong id="legendDefective">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="legend-item">
+
+                                <span
+                                    class="legend-color color-good"
+                                ></span>
+
+                                <span>
+                                    No Defect
+                                </span>
+
+                                <strong id="legendGood">
+                                    0
+                                </strong>
+
+                            </div>
+
+
+                            <div class="legend-item">
+
+                                <span
+                                    class="legend-color color-other"
+                                ></span>
+
+                                <span>
+                                    Total Inspections
+                                </span>
+
+                                <strong id="legendTotal">
+                                    0
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 AI MODEL
+            ================================================= -->
+
+            <div
+                class="dashboard-card model-card"
+                id="model"
+            >
+
+                <div class="model-info">
+
+                    <div class="model-icon">
+
+                        <i class="fas fa-microchip"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="section-label">
+                            DEEP LEARNING ENGINE
+                        </span>
+
+
+                        <h3 id="modelName">
+                            ResNet50 Metal Surface Classifier
+                        </h3>
+
+
+                        <p id="modelDescription">
+                            Transfer-learning based ResNet50 model
+                            used for industrial metal surface
+                            classification with Grad-CAM based
+                            approximate defect localization.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="model-metrics">
+
+
+                    <div>
+
+                        <strong id="modelClassCount">
+                            6
+                        </strong>
+
+                        <span>
+                            Model Classes
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            224×224
+                        </strong>
+
+                        <span>
+                            Input Size
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            ResNet50
+                        </strong>
+
+                        <span>
+                            Architecture
+                        </span>
+
+                    </div>
+
+
+                    <div>
+
+                        <strong>
+                            Grad-CAM
+                        </strong>
+
+                        <span>
+                            Approx. Localization
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 MODEL CLASSES
+            ================================================= -->
+
+            <div class="dashboard-section-header quick-header">
+
+                <div>
+
+                    <span class="section-label">
+                        MODEL INFORMATION
+                    </span>
+
+                    <h2>
+                        Trained Model Classes
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="quick-actions"
+                id="modelClassesContainer"
+            >
+
+                <!-- Filled dynamically -->
+
+                <div class="quick-action-card">
+
+                    <div class="quick-icon blue">
+                        <i class="fas fa-cube"></i>
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Loading model classes...
+                        </h3>
+
+                        <p>
+                            Reading class information from backend.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 QUICK ACTIONS
+            ================================================= -->
+
+            <div class="dashboard-section-header quick-header">
+
+                <div>
+
+                    <span class="section-label">
+                        WORKSPACE
+                    </span>
+
+                    <h2>
+                        Quick Actions
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions">
+
+
+                <a
+                    href="inspection.html"
+                    class="quick-action-card"
+                >
+
+                    <div class="quick-icon blue">
+
+                        <i class="fas fa-search"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Start Inspection
+                        </h3>
+
+                        <p>
+                            Upload a metal surface image for AI analysis.
+                        </p>
+
+                    </div>
+
+
+                    <span class="quick-arrow">
+
+                        <i class="fas fa-arrow-right"></i>
+
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    href="history.html"
+                    class="quick-action-card"
+                >
+
+                    <div class="quick-icon purple">
+
+                        <i class="fas fa-history"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Inspection History
+                        </h3>
+
+                        <p>
+                            Review previous inspection results and reports.
+                        </p>
+
+                    </div>
+
+
+                    <span class="quick-arrow">
+
+                        <i class="fas fa-arrow-right"></i>
+
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    href="index.html#technology"
+                    class="quick-action-card"
+                >
+
+                    <div class="quick-icon green">
+
+                        <i class="fas fa-cogs"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            AI Technology
+                        </h3>
+
+                        <p>
+                            Learn how ResNet50 and Grad-CAM work.
+                        </p>
+
+                    </div>
+
+
+                    <span class="quick-arrow">
+
+                        <i class="fas fa-arrow-right"></i>
+
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    href="faq.html"
+                    class="quick-action-card"
+                >
+
+                    <div class="quick-icon blue">
+
+                        <i class="fas fa-question-circle"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            Frequently Asked Questions
+                        </h3>
+
+                        <p>
+                            View project questions and documentation.
+                        </p>
+
+                    </div>
+
+
+                    <span class="quick-arrow">
+
+                        <i class="fas fa-arrow-right"></i>
+
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FOOTER
+        ===================================================== -->
+
+        <footer class="dashboard-footer">
+
+            <span>
+                © 2026 Metal Vision AI
+            </span>
+
+            <span>
+                Industrial AI Surface Inspection System
+            </span>
+
+        </footer>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         AI ASSISTANT
+    ========================================================= -->
+
+    <button
+        class="dashboard-ai-btn"
+        id="dashboardAiBtn"
+        type="button"
+    >
+
+        <i class="fas fa-robot"></i>
+
+        AI Assistant
+
+    </button>
+
+
+    <div
+        class="dashboard-chatbot"
+        id="dashboardChatbot"
+    >
+
+        <div class="chatbot-header">
+
+            <div>
+
+                <strong>
+                    Metal Vision AI
+                </strong>
+
+                <span>
+                    ● Online
+                </span>
+
+            </div>
+
+
+            <button
+                id="closeDashboardChatbot"
+                type="button"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="chatbot-body"
+            id="dashboardChatBody"
+        >
+
+            <div class="chat-message bot">
+
+                Hello! 👋
+
+                I'm Metal Vision AI Assistant.
+
+                How can I help you with the inspection system?
+
+            </div>
+
+
+            <div class="chat-message bot">
+
+                You can ask me about ResNet50,
+                Grad-CAM, metal inspection,
+                defect detection or reports.
+
+            </div>
+
+        </div>
+
+
+        <div class="chatbot-input">
+
+            <input
+                type="text"
+                id="dashboardChatInput"
+                placeholder="Ask something..."
+            >
+
+
+            <button
+                id="dashboardChatSend"
+                type="button"
+            >
+
+                <i class="fas fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================= -->
+
+    <script>
+
+        (function () {
+
+            "use strict";
+
+
+            /* =====================================================
+               BACKEND CONFIGURATION
+            ===================================================== */
+
+            const API_BASE = "http://127.0.0.1:8000";
+
+
+            /* =====================================================
+               DOM HELPERS
+            ===================================================== */
+
+            function $(id) {
+                return document.getElementById(id);
+            }
+
+
+            function setText(id, value) {
+
+                const element = $(id);
+
+                if (element) {
+                    element.textContent = value;
+                }
+
+            }
+
+
+            /* =====================================================
+               NORMALIZE API RESPONSE
+            ===================================================== */
+
+            function getArrayFromResponse(data) {
+
+                if (Array.isArray(data)) {
+                    return data;
+                }
+
+
+                if (data && Array.isArray(data.inspections)) {
+                    return data.inspections;
+                }
+
+
+                if (data && Array.isArray(data.data)) {
+                    return data.data;
+                }
+
+
+                if (data && Array.isArray(data.results)) {
+                    return data.results;
+                }
+
+
+                return [];
+            }
+
+
+            /* =====================================================
+               STATUS HELPERS
+            ===================================================== */
+
+            function isDefective(item) {
+
+                const status = String(
+                    item.status ||
+                    item.result ||
+                    ""
+                ).toLowerCase();
+
+
+                const defectType = String(
+                    item.defect_type ||
+                    ""
+                ).toLowerCase();
+
+
+                if (
+                    status.includes("defect") &&
+                    !status.includes("no defect")
+                ) {
+                    return true;
+                }
+
+
+                if (
+                    defectType.includes("surface defect")
+                ) {
+                    return true;
+                }
+
+
+                if (
+                    defectType &&
+                    !defectType.includes("no defect") &&
+                    status !== "good"
+                ) {
+                    return true;
+                }
+
+
+                return false;
+            }
+
+
+            function getStatusText(item) {
+
+                if (isDefective(item)) {
+                    return "Defective";
+                }
+
+                return "No Defect";
+            }
+
+
+            function getDefectText(item) {
+
+                if (isDefective(item)) {
+
+                    return (
+                        item.defect_type ||
+                        "Surface Defect"
+                    );
+
+                }
+
+                return "No Defect";
+            }
+
+
+            function getMetalText(item) {
+
+                const value =
+                    item.metal_type ||
+                    item.metal ||
+                    "Unknown";
+
+
+                return String(value)
+                    .replace(/_/g, " ")
+                    .replace(/\b\w/g, c => c.toUpperCase());
+            }
+
+
+            function getConfidence(item) {
+
+                let value =
+                    item.confidence ??
+                    item.confidence_score ??
+                    0;
+
+
+                value = Number(value);
+
+
+                if (!Number.isFinite(value)) {
+                    value = 0;
+                }
+
+
+                if (value <= 1) {
+                    value *= 100;
+                }
+
+
+                return Math.max(
+                    0,
+                    Math.min(100, value)
+                );
+            }
+
+
+            function formatConfidence(item) {
+
+                return getConfidence(item).toFixed(1);
+            }
+
+
+            function getDateText(item) {
+
+                const raw =
+                    item.created_at ||
+                    item.date ||
+                    item.timestamp ||
+                    "";
+
+
+                if (!raw) {
+                    return "—";
+                }
+
+
+                const date = new Date(raw);
+
+
+                if (Number.isNaN(date.getTime())) {
+                    return String(raw);
+                }
+
+
+                return date.toLocaleDateString(
+                    "en-IN",
+                    {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric"
+                    }
+                );
+            }
+
+
+            function getInspectionId(item) {
+
+                return (
+                    item.inspection_id ||
+                    item.id ||
+                    "—"
+                );
+            }
+
+
+            /* =====================================================
+               LOAD HISTORY
+            ===================================================== */
+
+            async function loadHistory() {
+
+                const table =
+                    $("recentInspectionTable");
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            `${API_BASE}/api/history`
+                        );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `HTTP ${response.status}`
+                        );
+
+                    }
+
+
+                    const data =
+                        await response.json();
+
+
+                    const inspections =
+                        getArrayFromResponse(data);
+
+
+                    updateStatistics(inspections);
+
+                    renderRecentInspections(
+                        inspections
+                    );
+
+                    renderAnalytics(
+                        inspections
+                    );
+
+
+                    setText(
+                        "systemStatusText",
+                        "System Online"
+                    );
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "History loading error:",
+                        error
+                    );
+
+
+                    setText(
+                        "systemStatusText",
+                        "Backend Unavailable"
+                    );
+
+
+                    if (table) {
+
+                        table.innerHTML = `
+
+                            <tr>
+
+                                <td
+                                    colspan="6"
+                                    class="empty-table"
+                                >
+
+                                    <i
+                                        class="fas fa-server"
+                                        style="
+                                            font-size:22px;
+                                            margin-bottom:10px;
+                                            display:block;
+                                            color:#d84c4c;
+                                        "
+                                    ></i>
+
+                                    Unable to load inspection history.
+
+                                    <br>
+
+                                    <small>
+                                        Make sure the FastAPI backend
+                                        is running on port 8000.
+                                    </small>
+
+                                </td>
+
+                            </tr>
+
+                        `;
+
+                    }
+
+                }
+
+            }
+
+
+            /* =====================================================
+               UPDATE STATISTICS
+            ===================================================== */
+
+            function updateStatistics(
+                inspections
+            ) {
+
+                const total =
+                    inspections.length;
+
+
+                let defective = 0;
+
+                let good = 0;
+
+                let confidenceTotal = 0;
+
+
+                inspections.forEach(
+                    item => {
+
+                        if (
+                            isDefective(item)
+                        ) {
+
+                            defective++;
+
+                        }
+
+                        else {
+
+                            good++;
+
+                        }
+
+
+                        confidenceTotal +=
+                            getConfidence(item);
+
+                    }
+                );
+
+
+                const average =
+                    total > 0
+                        ? confidenceTotal / total
+                        : 0;
+
+
+                setText(
+                    "totalInspections",
+                    total
+                );
+
+
+                setText(
+                    "defectiveInspections",
+                    defective
+                );
+
+
+                setText(
+                    "goodInspections",
+                    good
+                );
+
+
+                setText(
+                    "avgConfidence",
+                    average.toFixed(1)
+                );
+
+
+                setText(
+                    "defectCount",
+                    defective
+                );
+
+
+                setText(
+                    "legendDefective",
+                    defective
+                );
+
+
+                setText(
+                    "legendGood",
+                    good
+                );
+
+
+                setText(
+                    "legendTotal",
+                    total
+                );
+
+            }
+
+
+            /* =====================================================
+               RECENT INSPECTIONS
+            ===================================================== */
+
+            function renderRecentInspections(
+                inspections
+            ) {
+
+                const table =
+                    $("recentInspectionTable");
+
+
+                if (!table) {
+                    return;
+                }
+
+
+                if (
+                    !inspections ||
+                    inspections.length === 0
+                ) {
+
+                    table.innerHTML = `
+
+                        <tr>
+
+                            <td
+                                colspan="6"
+                                class="empty-table"
+                            >
+
+                                <i
+                                    class="fas fa-inbox"
+                                    style="
+                                        font-size:22px;
+                                        margin-bottom:10px;
+                                        display:block;
+                                        color:#9aa6b5;
+                                    "
+                                ></i>
+
+                                No inspections found.
+
+                                <br>
+
+                                <small>
+                                    Start a new inspection
+                                    to see results here.
+                                </small>
+
+                            </td>
+
+                        </tr>
+
+                    `;
+
+                    return;
+                }
+
+
+                const sorted =
+                    [...inspections].sort(
+                        (a, b) => {
+
+                            const dateA =
+                                new Date(
+                                    a.created_at || 0
+                                ).getTime();
+
+                            const dateB =
+                                new Date(
+                                    b.created_at || 0
+                                ).getTime();
+
+                            return dateB - dateA;
+
+                        }
+                    );
+
+
+                const recent =
+                    sorted.slice(0, 8);
+
+
+                table.innerHTML =
+                    recent.map(
+                        item => {
+
+                            const defective =
+                                isDefective(item);
+
+
+                            const confidence =
+                                getConfidence(item);
+
+
+                            const status =
+                                getStatusText(item);
+
+
+                            const defect =
+                                getDefectText(item);
+
+
+                            const metal =
+                                getMetalText(item);
+
+
+                            const id =
+                                getInspectionId(item);
+
+
+                            return `
+
+                                <tr>
+
+                                    <td>
+
+                                        <strong>
+                                            ${escapeHtml(id)}
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td>
+                                        ${escapeHtml(metal)}
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="defect-name">
+                                            ${escapeHtml(defect)}
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <div
+                                            class="confidence-cell"
+                                        >
+
+                                            <div
+                                                class="confidence-bar"
+                                            >
+
+                                                <span
+                                                    style="
+                                                        width:${confidence}%
+                                                    "
+                                                ></span>
+
+                                            </div>
+
+
+                                            <span
+                                                class="confidence-text"
+                                            >
+                                                ${confidence.toFixed(1)}%
+                                            </span>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span
+                                            class="
+                                                status-badge
+                                                ${defective
+                                                    ? "defective"
+                                                    : "normal"}
+                                            "
+                                        >
+
+                                            ${status}
+
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+                                        ${escapeHtml(
+                                            getDateText(item)
+                                        )}
+                                    </td>
+
+                                </tr>
+
+                            `;
+
+                        }
+                    ).join("");
+
+            }
+
+
+            /* =====================================================
+               ANALYTICS
+            ===================================================== */
+
+            function renderAnalytics(
+                inspections
+            ) {
+
+                const total =
+                    inspections.length;
+
+
+                const defective =
+                    inspections.filter(
+                        isDefective
+                    ).length;
+
+
+                const good =
+                    total - defective;
+
+
+                const donut =
+                    $("donutChart");
+
+
+                if (!donut) {
+                    return;
+                }
+
+
+                let defectivePercent = 0;
+
+
+                if (total > 0) {
+
+                    defectivePercent =
+                        (
+                            defective /
+                            total
+                        ) * 100;
+
+                }
+
+
+                donut.style.background =
+                    `conic-gradient(
+                        #146ef5 0 ${defectivePercent}%,
+                        #49a5e8 ${defectivePercent}% 100%
+                    )`;
+
+            }
+
+
+            /* =====================================================
+               LOAD MODEL INFO
+            ===================================================== */
+
+            async function loadModelInfo() {
+
+                try {
+
+                    const response =
+                        await fetch(
+                            `${API_BASE}/api/model-info`
+                        );
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            `HTTP ${response.status}`
+                        );
+
+                    }
+
+
+                    const data =
+                        await response.json();
+
+
+                    console.log(
+                        "Model info:",
+                        data
+                    );
+
+
+                    const modelName =
+                        data.model_name ||
+                        data.name ||
+                        "ResNet50 Metal Surface Classifier";
+
+
+                    setText(
+                        "modelName",
+                        modelName
+                    );
+
+
+                    const classNames =
+                        data.class_names ||
+                        data.classes ||
+                        [];
+
+
+                    if (
+                        Array.isArray(classNames) &&
+                        classNames.length > 0
+                    ) {
+
+                        setText(
+                            "modelClassCount",
+                            classNames.length
+                        );
+
+
+                        renderModelClasses(
+                            classNames
+                        );
+
+                    }
+
+                    else {
+
+                        renderModelClasses([
+                            "aluminium_defective",
+                            "aluminium_good",
+                            "copper_defective",
+                            "copper_good",
+                            "iron_defective",
+                            "steel_defective"
+                        ]);
+
+                    }
+
+                }
+
+                catch (error) {
+
+                    console.error(
+                        "Model information error:",
+                        error
+                    );
+
+
+                    renderModelClasses([
+                        "aluminium_defective",
+                        "aluminium_good",
+                        "copper_defective",
+                        "copper_good",
+                        "iron_defective",
+                        "steel_defective"
+                    ]);
+
+                }
+
+            }
+
+
+            /* =====================================================
+               MODEL CLASSES
+            ===================================================== */
+
+            function renderModelClasses(
+                classNames
+            ) {
+
+                const container =
+                    $("modelClassesContainer");
+
+
+                if (!container) {
+                    return;
+                }
+
+
+                if (
+                    !Array.isArray(classNames) ||
+                    classNames.length === 0
+                ) {
+
+                    container.innerHTML = `
+
+                        <div class="quick-action-card">
+
+                            <div class="quick-icon blue">
+
+                                <i class="fas fa-cube"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Model classes unavailable
+                                </h3>
+
+                                <p>
+                                    No class information was
+                                    returned by the backend.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                    return;
+
+                }
+
+
+                container.innerHTML =
+                    classNames.map(
+                        (className, index) => {
+
+                            const formatted =
+                                formatClassName(
+                                    className
+                                );
+
+
+                            const isGood =
+                                String(className)
+                                    .toLowerCase()
+                                    .includes("_good");
+
+
+                            return `
+
+                                <div
+                                    class="quick-action-card"
+                                >
+
+                                    <div
+                                        class="
+                                            quick-icon
+                                            ${isGood
+                                                ? "green"
+                                                : "blue"}
+                                        "
+                                    >
+
+                                        <i
+                                            class="
+                                                fas
+                                                ${isGood
+                                                    ? "fa-check-circle"
+                                                    : "fa-exclamation-triangle"}
+                                            "
+                                        ></i>
+
+                                    </div>
+
+
+                                    <div>
+
+                                        <h3>
+                                            ${escapeHtml(
+                                                formatted
+                                            )}
+                                        </h3>
+
+
+                                        <p>
+                                            Model class
+                                            ${index + 1}
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            `;
+
+                        }
+                    ).join("");
+
+            }
+
+
+            function formatClassName(
+                value
+            ) {
+
+                return String(value)
+                    .replace(/_/g, " ")
+                    .replace(/\b\w/g, c =>
+                        c.toUpperCase()
+                    );
+
+            }
+
+
+            /* =====================================================
+               HTML ESCAPE
+            ===================================================== */
+
+            function escapeHtml(
+                value
+            ) {
+
+                return String(value ?? "")
+                    .replace(
+                        /&/g,
+                        "&amp;"
+                    )
+                    .replace(
+                        /</g,
+                        "&lt;"
+                    )
+                    .replace(
+                        />/g,
+                        "&gt;"
+                    )
+                    .replace(
+                        /"/g,
+                        "&quot;"
+                    )
+                    .replace(
+                        /'/g,
+                        "&#039;"
+                    );
+
+            }
+
+
+            /* =====================================================
+               USER
+            ===================================================== */
+
+            function loadUser() {
+
+                try {
+
+                    const storedUser =
+                        localStorage.getItem(
+                            "metalVisionUser"
+                        );
+
+
+                    if (!storedUser) {
+                        return;
+                    }
+
+
+                    const user =
+                        JSON.parse(
+                            storedUser
+                        );
+
+
+                    const name =
+                        user.name ||
+                        user.username ||
+                        "User";
+
+
+                    setText(
+                        "dashboardUserName",
+                        name
+                    );
+
+
+                    setText(
+                        "welcomeUserName",
+                        name
+                    );
+
+
+                    const avatar =
+                        $("userAvatar");
+
+
+                    if (avatar) {
+
+                        avatar.textContent =
+                            name
+                                .charAt(0)
+                                .toUpperCase();
+
+                    }
+
+                }
+
+                catch (error) {
+
+                    console.warn(
+                        "Unable to load user:",
+                        error
+                    );
+
+                }
+
+            }
+
+
+            /* =====================================================
+               MOBILE MENU
+            ===================================================== */
+
+            const sidebar =
+                $("sidebar");
+
+
+            const mobileMenuBtn =
+                $("mobileMenuBtn");
+
+
+            if (
+                sidebar &&
+                mobileMenuBtn
+            ) {
+
+                mobileMenuBtn.addEventListener(
+                    "click",
+                    function (event) {
+
+                        event.stopPropagation();
+
+                        sidebar.classList.toggle(
+                            "mobile-open"
+                        );
+
+                    }
+                );
+
+
+                document.addEventListener(
+                    "click",
+                    function (event) {
+
+                        if (
+                            window.innerWidth <= 800 &&
+                            sidebar.classList.contains(
+                                "mobile-open"
+                            ) &&
+                            !sidebar.contains(
+                                event.target
+                            ) &&
+                            event.target !==
+                                mobileMenuBtn
+                        ) {
+
+                            sidebar.classList.remove(
+                                "mobile-open"
+                            );
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               CHATBOT
+            ===================================================== */
+
+            const aiBtn =
+                $("dashboardAiBtn");
+
+
+            const chatbot =
+                $("dashboardChatbot");
+
+
+            const closeChatbot =
+                $("closeDashboardChatbot");
+
+
+            if (
+                aiBtn &&
+                chatbot &&
+                closeChatbot
+            ) {
+
+                aiBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        chatbot.classList.toggle(
+                            "open"
+                        );
+
+                    }
+                );
+
+
+                closeChatbot.addEventListener(
+                    "click",
+                    function () {
+
+                        chatbot.classList.remove(
+                            "open"
+                        );
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               CHAT SEND
+            ===================================================== */
+
+            const chatInput =
+                $("dashboardChatInput");
+
+
+            const chatSend =
+                $("dashboardChatSend");
+
+
+            const chatBody =
+                $("dashboardChatBody");
+
+
+            if (
+                chatInput &&
+                chatSend &&
+                chatBody
+            ) {
+
+                async function sendMessage() {
+
+                    const text =
+                        chatInput.value.trim();
+
+
+                    if (!text) {
+                        return;
+                    }
+
+
+                    const userMessage =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    userMessage.className =
+                        "chat-message user";
+
+
+                    userMessage.textContent =
+                        text;
+
+
+                    chatBody.appendChild(
+                        userMessage
+                    );
+
+
+                    chatInput.value = "";
+
+
+                    chatBody.scrollTop =
+                        chatBody.scrollHeight;
+
+
+                    try {
+
+                        const response =
+                            await fetch(
+                                `${API_BASE}/api/chat`,
+                                {
+                                    method: "POST",
+
+                                    headers: {
+                                        "Content-Type":
+                                            "application/json"
+                                    },
+
+                                    body: JSON.stringify({
+                                        message: text
+                                    })
+                                }
+                            );
+
+
+                        if (!response.ok) {
+                            throw new Error(
+                                "Chat endpoint unavailable"
+                            );
+                        }
+
+
+                        const data =
+                            await response.json();
+
+
+                        const reply =
+                            data.response ||
+                            data.message ||
+                            data.reply ||
+                            "I could not generate a response.";
+
+
+                        addBotMessage(
+                            reply
+                        );
+
+                    }
+
+                    catch (error) {
+
+                        console.warn(
+                            "Chatbot backend unavailable:",
+                            error
+                        );
+
+
+                        addBotMessage(
+                            "I can help explain the Metal Vision AI system, ResNet50, Grad-CAM, defect detection and inspection reports. The chatbot service is currently unavailable."
+                        );
+
+                    }
+
+                }
+
+
+                function addBotMessage(
+                    message
+                ) {
+
+                    const botMessage =
+                        document.createElement(
+                            "div"
+                        );
+
+
+                    botMessage.className =
+                        "chat-message bot";
+
+
+                    botMessage.textContent =
+                        message;
+
+
+                    chatBody.appendChild(
+                        botMessage
+                    );
+
+
+                    chatBody.scrollTop =
+                        chatBody.scrollHeight;
+
+                }
+
+
+                chatSend.addEventListener(
+                    "click",
+                    sendMessage
+                );
+
+
+                chatInput.addEventListener(
+                    "keypress",
+                    function (event) {
+
+                        if (
+                            event.key === "Enter"
+                        ) {
+
+                            sendMessage();
+
+                        }
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               LOGOUT
+            ===================================================== */
+
+            const logoutBtn =
+                $("logoutBtn");
+
+
+            if (logoutBtn) {
+
+                logoutBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        const confirmed =
+                            confirm(
+                                "Are you sure you want to log out?"
+                            );
+
+
+                        if (!confirmed) {
+                            return;
+                        }
+
+
+                        localStorage.removeItem(
+                            "metalVisionUser"
+                        );
+
+
+                        window.location.href =
+                            "index.html";
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               SYSTEM STATUS
+            ===================================================== */
+
+            const statusBtn =
+                $("systemStatusBtn");
+
+
+            if (statusBtn) {
+
+                statusBtn.addEventListener(
+                    "click",
+                    function () {
+
+                        loadHistory();
+
+                        loadModelInfo();
+
+                    }
+                );
+
+            }
+
+
+            /* =====================================================
+               INITIALIZE DASHBOARD
+            ===================================================== */
+
+            loadUser();
+
+            loadHistory();
+
+            loadModelInfo();
+
+        })();
+
+    </script>
+
+</body>
+
+</html>

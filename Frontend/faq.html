@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>FAQ | Metal Vision AI</title>
+
+   <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="css/faq.css">
+
+    <style>
+
+        .faq-page {
+            min-height: 100vh;
+            background: #f4f7fb;
+        }
+
+        .faq-main {
+            margin-left: 250px;
+            min-height: 100vh;
+        }
+
+        .faq-content {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px;
+        }
+
+        .faq-header {
+            background: white;
+            border: 1px solid #dde5ee;
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 25px rgba(30, 60, 90, 0.05);
+        }
+
+        .faq-label {
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #146ef5;
+        }
+
+        .faq-header h1 {
+            margin: 8px 0;
+            font-size: 27px;
+            color: #172438;
+        }
+
+        .faq-header p {
+            margin: 0;
+            color: #6c7a8d;
+            font-size: 12px;
+            line-height: 1.7;
+        }
+
+        .faq-pdf-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            background: linear-gradient(
+                135deg,
+                #146ef5,
+                #0958c8
+            );
+            color: white;
+            border-radius: 15px;
+            padding: 24px;
+            margin-bottom: 25px;
+            box-shadow: 0 12px 30px rgba(20, 110, 245, 0.2);
+        }
+
+        .faq-pdf-card h3 {
+            margin: 0 0 6px;
+            font-size: 15px;
+        }
+
+        .faq-pdf-card p {
+            margin: 0;
+            font-size: 10px;
+            opacity: 0.9;
+        }
+
+        .faq-pdf-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 17px;
+            border-radius: 9px;
+            background: white;
+            color: #146ef5;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid #dde5ee;
+            border-radius: 13px;
+            padding: 20px 22px;
+            box-shadow: 0 5px 20px rgba(30, 60, 90, 0.035);
+        }
+
+        .faq-item h3 {
+            margin: 0 0 8px;
+            font-size: 13px;
+            color: #243248;
+        }
+
+        .faq-item p {
+            margin: 0;
+            color: #69778a;
+            font-size: 10px;
+            line-height: 1.7;
+        }
+
+        .back-dashboard {
+            display: inline-flex;
+            margin-top: 25px;
+            text-decoration: none;
+            color: #146ef5;
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        @media (max-width: 800px) {
+
+            .faq-main {
+                margin-left: 0;
+            }
+
+            .faq-content {
+                padding: 25px 18px;
+            }
+
+            .faq-pdf-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="faq-page">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <a href="index.html" class="sidebar-logo">
+
+            <div class="logo-mark">
+                <span>MV</span>
+            </div>
+
+            <div>
+                <h2>METAL VISION</h2>
+                <span>AI INSPECTION</span>
+            </div>
+
+        </a>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="inspection.html" class="nav-item">
+                <span class="nav-icon">⌕</span>
+                <span>New Inspection</span>
+            </a>
+
+            <a href="history.html" class="nav-item">
+                <span class="nav-icon">◴</span>
+                <span>Inspection History</span>
+            </a>
+
+            <div class="nav-section-title">
+                ANALYTICS
+            </div>
+
+            <a href="dashboard.html#analytics" class="nav-item">
+                <span class="nav-icon">▥</span>
+                <span>Defect Analytics</span>
+            </a>
+
+            <a href="dashboard.html#model" class="nav-item">
+                <span class="nav-icon">◇</span>
+                <span>AI Model</span>
+            </a>
+
+            <div class="nav-section-title">
+                SUPPORT
+            </div>
+
+            <a href="faq.html" class="nav-item active">
+                <span class="nav-icon">?</span>
+                <span>FAQ</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">←</span>
+                <span>Dashboard</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main class="faq-main">
+
+        <section class="faq-content">
+
+
+            <div class="faq-header">
+
+                <span class="faq-label">
+                    SYSTEM DOCUMENTATION
+                </span>
+
+                <h1>
+                    Frequently Asked Questions
+                </h1>
+
+                <p>
+                    Find answers about Metal Vision AI,
+                    the ResNet50 defect classifier,
+                    Grad-CAM localization, dataset,
+                    inspection workflow and generated reports.
+                </p>
+
+            </div>
+
+
+            <!-- PDF -->
+
+            <div class="faq-pdf-card">
+
+                <div>
+
+                    <h3>
+                        Metal Vision AI FAQ Documentation
+                    </h3>
+
+                    <p>
+                        View the complete project questions
+                        and technical answers in PDF format.
+                    </p>
+
+                </div>
+
+                <a
+                    href="assets/Metal_Vision_AI_FAQ.pdf"
+                    target="_blank"
+                    class="faq-pdf-btn">
+
+                    📄 Open FAQ PDF
+
+                </a>
+
+            </div>
+
+
+            <!-- FAQ -->
+
+            <div class="faq-list">
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        1. What is Metal Vision AI?
+                    </h3>
+
+                    <p>
+                        Metal Vision AI is an industrial surface
+                        inspection system that uses deep learning
+                        to classify metal surface defects from images.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        2. Which deep learning model is used?
+                    </h3>
+
+                    <p>
+                        The system uses a ResNet50 transfer-learning
+                        model implemented using TensorFlow and Keras.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        3. How many defect classes are supported?
+                    </h3>
+
+                    <p>
+                        The classifier supports 10 defect categories:
+                        Punching Hole, Welding Line, Crescent Gap,
+                        Water Spot, Oil Spot, Silk Spot, Inclusion,
+                        Rolled Pit, Crease and Waist Folding.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        4. What is Grad-CAM?
+                    </h3>
+
+                    <p>
+                        Grad-CAM is a visualization technique that
+                        highlights image regions that contributed
+                        strongly to the model's prediction.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        5. Does Grad-CAM provide exact defect boundaries?
+                    </h3>
+
+                    <p>
+                        No. In this project Grad-CAM provides
+                        approximate defect-region localization.
+                        Exact bounding boxes require suitable
+                        annotations and a detection or segmentation model.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        6. What image size does the model use?
+                    </h3>
+
+                    <p>
+                        Images are resized to 224 × 224 pixels
+                        before model inference.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        7. How large is the dataset?
+                    </h3>
+
+                    <p>
+                        The project dataset contains 2,541 images
+                        across 10 defect classes with a 70% training
+                        and 30% testing split.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        8. Can the current model identify a GOOD surface?
+                    </h3>
+
+                    <p>
+                        The current classifier was trained only on
+                        the 10 defect classes. Therefore it should
+                        not be treated as a genuine GOOD/NORMAL detector.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        9. Can an inspection report be generated?
+                    </h3>
+
+                    <p>
+                        Yes. A completed inspection can be exported
+                        as a PDF report from the result page.
+                    </p>
+
+                </div>
+
+
+                <div class="faq-item">
+
+                    <h3>
+                        10. Which backend technology is used?
+                    </h3>
+
+                    <p>
+                        The backend uses Python and FastAPI,
+                        while the frontend uses HTML, CSS and JavaScript.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <a
+                href="dashboard.html"
+                class="back-dashboard">
+
+                ← Back to Dashboard
+
+            </a>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>

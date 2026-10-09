@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>New Inspection | Metal Vision AI</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="stylesheet" href="./css/inspection.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <header class="inspection-navbar">
+
+        <a
+            href="dashboard.html"
+            class="inspection-brand"
+        >
+
+            <div class="inspection-logo">
+                MV
+            </div>
+
+            <div>
+
+                <strong>
+                    METAL VISION
+                </strong>
+
+                <span>
+                    AI INSPECTION SYSTEM
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="inspection-nav-right">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="history.html">
+                History
+            </a>
+
+
+            <button
+                class="user-menu"
+                id="userMenu"
+                type="button"
+            >
+
+                <span
+                    class="user-avatar"
+                    id="userAvatar"
+                >
+                    U
+                </span>
+
+                <span id="inspectionUserName">
+                    User
+                </span>
+
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         MAIN
+    ========================================================== -->
+
+    <main class="inspection-page">
+
+
+        <!-- =====================================================
+             PAGE HEADING
+        ====================================================== -->
+
+        <section class="inspection-heading">
+
+            <div>
+
+                <span class="section-tag">
+                    AI INSPECTION
+                </span>
+
+                <h1>
+                    New Metal Surface Inspection
+                </h1>
+
+                <p>
+                    Upload a metal surface image and let the AI model
+                    analyze the material and identify whether a surface
+                    defect is present.
+                </p>
+
+            </div>
+
+
+            <div class="inspection-status">
+
+                <span class="status-dot"></span>
+
+                AI MODEL READY
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             INSPECTION WORKSPACE
+        ====================================================== -->
+
+        <section class="inspection-workspace">
+
+
+            <!-- =================================================
+                 UPLOAD CARD
+            ================================================== -->
+
+            <div class="upload-card">
+
+
+                <!-- Card Header -->
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-number">
+                            STEP 01
+                        </span>
+
+                        <h2>
+                            Upload Metal Image
+                        </h2>
+
+                    </div>
+
+
+                    <div class="upload-icon">
+                        ↑
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     UPLOAD AREA
+                ================================================== -->
+
+                <div
+                    class="upload-area"
+                    id="uploadArea"
+                >
+
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept=".jpg,.jpeg,.png,image/jpeg,image/png"
+                        hidden
+                    >
+
+
+                    <!-- Upload Placeholder -->
+
+                    <div
+                        class="upload-placeholder"
+                        id="uploadPlaceholder"
+                    >
+
+                        <div class="upload-symbol">
+                            ↑
+                        </div>
+
+                        <h3>
+                            Drag & Drop Image
+                        </h3>
+
+                        <p>
+                            or click to browse from your computer
+                        </p>
+
+                        <span>
+                            Supported formats: JPG, JPEG, PNG
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     IMAGE PREVIEW
+                     IMPORTANT: OUTSIDE uploadArea
+                ================================================== -->
+
+                <div
+                    class="image-preview-container"
+                    id="previewContainer"
+                    style="display: none;"
+                >
+
+                    <div class="preview-image-wrapper">
+
+                        <img
+                            id="previewImage"
+                            src=""
+                            alt="Metal surface preview"
+                        >
+
+
+                        <button
+                            class="remove-image"
+                            id="removeImageBtn"
+                            type="button"
+                            title="Remove image"
+                        >
+                            ×
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     IMAGE INFORMATION
+                ================================================== -->
+
+                <div
+                    class="image-information"
+                    id="imageInformation"
+                >
+
+                    <div>
+
+                        <span>
+                            FILE NAME
+                        </span>
+
+                        <strong id="fileName">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            FILE SIZE
+                        </span>
+
+                        <strong id="fileSize">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            IMAGE TYPE
+                        </span>
+
+                        <strong id="fileType">
+                            —
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ANALYZE BUTTON
+                ================================================== -->
+
+                <button
+                    class="analyze-button"
+                    id="analyzeBtn"
+                    type="button"
+                    disabled
+                >
+
+                    <span>
+                        Analyze Metal Surface
+                    </span>
+
+                    <span class="button-arrow">
+                        →
+                    </span>
+
+                </button>
+
+
+
+                <!-- =================================================
+                     PROCESSING
+                ================================================== -->
+
+                <div
+                    class="processing-box"
+                    id="processingBox"
+                    style="display: none;"
+                >
+
+                    <div class="loader"></div>
+
+                    <div>
+
+                        <strong>
+                            AI Analysis in Progress
+                        </strong>
+
+                        <span>
+                            ResNet50 is analyzing the uploaded image...
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     ERROR
+                ================================================== -->
+
+                <div
+                    class="inspection-error"
+                    id="errorBox"
+                    style="display: none;"
+                >
+
+                    <span id="errorMessage"></span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =====================================================
+                 AI PIPELINE
+            ====================================================== -->
+
+            <aside class="pipeline-card">
+
+
+                <div class="card-header">
+
+                    <div>
+
+                        <span class="card-number">
+                            AI PIPELINE
+                        </span>
+
+                        <h2>
+                            Inspection Process
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="pipeline">
+
+
+                    <!-- Step 01 -->
+
+                    <div class="pipeline-step active">
+
+                        <div class="pipeline-icon">
+                            01
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Image Upload
+                            </strong>
+
+                            <span>
+                                Select metal surface image
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+
+                    <!-- Step 02 -->
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            02
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Preprocessing
+                            </strong>
+
+                            <span>
+                                Resize image to 224 × 224
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+
+                    <!-- Step 03 -->
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            03
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                ResNet50 Analysis
+                            </strong>
+
+                            <span>
+                                Deep learning classification
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+
+                    <!-- Step 04 -->
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            04
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Surface Classification
+                            </strong>
+
+                            <span>
+                                Determine metal and surface condition
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="pipeline-line"></div>
+
+
+
+                    <!-- Step 05 -->
+
+                    <div class="pipeline-step">
+
+                        <div class="pipeline-icon">
+                            05
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Grad-CAM
+                            </strong>
+
+                            <span>
+                                Approximate defect localization
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MODEL INFORMATION
+                ================================================== -->
+
+                <div class="model-info">
+
+
+                    <div class="model-info-header">
+
+                        <span class="model-indicator"></span>
+
+                        <strong>
+                            Model Status
+                        </strong>
+
+                    </div>
+
+
+                    <div class="model-details">
+
+
+                        <div>
+
+                            <span>
+                                MODEL
+                            </span>
+
+                            <strong>
+                                ResNet50
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                INPUT
+                            </span>
+
+                            <strong>
+                                224 × 224
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                CLASSES
+                            </span>
+
+                            <strong>
+                                6
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                LOCALIZATION
+                            </span>
+
+                            <strong>
+                                Grad-CAM
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </aside>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             MODEL CATEGORIES
+        ====================================================== -->
+
+        <section class="defects-section">
+
+
+            <div class="defects-heading">
+
+                <span class="section-tag">
+                    MODEL CATEGORIES
+                </span>
+
+                <h2>
+                    Supported Model Classes
+                </h2>
+
+                <p>
+                    The trained ResNet50 model contains six classes
+                    representing the available metal types and surface
+                    conditions in the current dataset.
+                </p>
+
+            </div>
+
+
+
+            <div class="defect-list">
+
+
+                <div class="defect-item">
+
+                    <span>01</span>
+
+                    <strong>
+                        Aluminium — Defective
+                    </strong>
+
+                </div>
+
+
+                <div class="defect-item">
+
+                    <span>02</span>
+
+                    <strong>
+                        Aluminium — Good
+                    </strong>
+
+                </div>
+
+
+                <div class="defect-item">
+
+                    <span>03</span>
+
+                    <strong>
+                        Copper — Defective
+                    </strong>
+
+                </div>
+
+
+                <div class="defect-item">
+
+                    <span>04</span>
+
+                    <strong>
+                        Copper — Good
+                    </strong>
+
+                </div>
+
+
+                <div class="defect-item">
+
+                    <span>05</span>
+
+                    <strong>
+                        Iron — Defective
+                    </strong>
+
+                </div>
+
+
+                <div class="defect-item">
+
+                    <span>06</span>
+
+                    <strong>
+                        Steel — Defective
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="model-category-note">
+
+                <strong>
+                    Important:
+                </strong>
+
+                <span>
+                    The current trained dataset does not contain verified
+                    individual defect labels such as rust, scratch or crack.
+                    Defective predictions are therefore reported as
+                    <b>Surface Defect</b>.
+                </span>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer class="inspection-footer">
+
+
+        <div>
+
+            <strong>
+                METAL VISION AI
+            </strong>
+
+            <span>
+                Industrial Metal Surface Defect Detection
+            </span>
+
+        </div>
+
+
+        <p>
+            © 2026 Metal Vision AI. Final Year Engineering Project.
+        </p>
+
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script src="./js/inspection.js"></script>
+
+
+</body>
+
+</html>

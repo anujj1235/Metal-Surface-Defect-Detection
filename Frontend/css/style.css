@@ -1,0 +1,1140 @@
+/* =========================================================
+   METAL VISION AI
+   Professional Light Industrial Theme
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f8fc;
+    color: #172033;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    height: 76px;
+    padding: 0 7%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-bottom: 1px solid #e3e9f0;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    box-shadow: 0 3px 15px rgba(24, 42, 64, 0.05);
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #1769e0;
+
+    color: #ffffff;
+
+    font-weight: 800;
+    font-size: 14px;
+
+    border-radius: 8px;
+
+    box-shadow: 0 5px 15px rgba(23, 105, 224, 0.2);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-main {
+    color: #172033;
+
+    font-size: 15px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.logo-sub {
+    color: #7c8796;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+}
+
+
+/* Navigation */
+
+.nav-links {
+    display: flex;
+    gap: 34px;
+}
+
+.nav-links a {
+    color: #687587;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #1769e0;
+}
+
+
+/* Navigation buttons */
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-login,
+.btn-register {
+    padding: 9px 18px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+.btn-login {
+    color: #273449;
+
+    border: 1px solid #d7dfe8;
+
+    background: #ffffff;
+}
+
+.btn-login:hover {
+    border-color: #1769e0;
+    color: #1769e0;
+}
+
+.btn-register {
+    background: #1769e0;
+    color: #ffffff;
+
+    box-shadow: 0 5px 15px rgba(23, 105, 224, 0.18);
+}
+
+.btn-register:hover {
+    background: #1259c1;
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 650px;
+
+    padding: 90px 7%;
+
+    display: grid;
+
+    grid-template-columns: 1.05fr 0.95fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 80% 45%,
+            rgba(23, 105, 224, 0.08),
+            transparent 35%
+        ),
+
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #f4f8fc
+        );
+}
+
+.hero-content {
+    max-width: 680px;
+}
+
+
+/* Status badge */
+
+.status-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 7px 12px;
+
+    border: 1px solid #cbdcf4;
+
+    border-radius: 30px;
+
+    background: #f1f7ff;
+
+    color: #1769e0;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 800;
+
+    margin-bottom: 25px;
+}
+
+.status-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #2eae68;
+
+    box-shadow: 0 0 0 4px rgba(46, 174, 104, 0.1);
+}
+
+
+/* Main heading */
+
+.hero h1 {
+    color: #162033;
+
+    font-size: clamp(44px, 5vw, 72px);
+
+    line-height: 1.05;
+
+    letter-spacing: -2.5px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+
+    color: #1769e0;
+}
+
+
+/* Description */
+
+.hero-description {
+    color: #687587;
+
+    font-size: 17px;
+
+    max-width: 600px;
+
+    margin-bottom: 35px;
+}
+
+
+/* Hero buttons */
+
+.hero-buttons {
+    display: flex;
+
+    gap: 14px;
+
+    margin-bottom: 50px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 13px 21px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition: 0.25s ease;
+}
+
+.btn-primary {
+    background: #1769e0;
+
+    color: #ffffff;
+
+    box-shadow: 0 8px 20px rgba(23, 105, 224, 0.2);
+}
+
+.btn-primary:hover {
+    background: #1259c1;
+
+    transform: translateY(-2px);
+}
+
+.btn-primary span {
+    margin-left: 8px;
+}
+
+.btn-secondary {
+    color: #273449;
+
+    background: #ffffff;
+
+    border: 1px solid #d8e0e9;
+}
+
+.btn-secondary:hover {
+    border-color: #1769e0;
+
+    color: #1769e0;
+
+    transform: translateY(-2px);
+}
+
+
+/* Hero statistics */
+
+.hero-stats {
+    display: flex;
+
+    gap: 50px;
+}
+
+.hero-stats div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.hero-stats strong {
+    color: #172033;
+
+    font-size: 20px;
+}
+
+.hero-stats span {
+    color: #7c8796;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   SCANNER CARD
+========================================================= */
+
+.hero-visual {
+    display: flex;
+
+    justify-content: center;
+}
+
+.scanner-card {
+    width: 100%;
+
+    max-width: 500px;
+
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe6ee;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 25px 60px rgba(36, 55, 78, 0.12);
+}
+
+.scanner-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 7px 5px 14px;
+
+    color: #7a8796;
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+}
+
+.live-indicator {
+    color: #2eae68;
+}
+
+
+/* Metal image preview */
+
+.metal-preview {
+    height: 320px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            125deg,
+            #b9c2ca,
+            #e3e8ec,
+            #8e9aa3,
+            #d7dde2
+        );
+}
+
+
+/* Grid */
+
+.scan-grid {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.25) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.25) 1px,
+            transparent 1px
+        );
+
+    background-size: 30px 30px;
+}
+
+
+/* Scanning line */
+
+.scan-line {
+    position: absolute;
+
+    width: 100%;
+
+    height: 2px;
+
+    top: 45%;
+
+    background: #1769e0;
+
+    box-shadow:
+        0 0 18px rgba(23, 105, 224, 0.8);
+}
+
+
+/* Defect regions */
+
+.defect-region {
+    position: absolute;
+
+    border: 2px solid #e54848;
+
+    background: rgba(229, 72, 72, 0.12);
+
+    box-shadow:
+        0 0 25px rgba(229, 72, 72, 0.15);
+}
+
+.region-one {
+    width: 120px;
+
+    height: 80px;
+
+    left: 27%;
+
+    top: 28%;
+}
+
+.region-two {
+    width: 90px;
+
+    height: 65px;
+
+    right: 15%;
+
+    bottom: 20%;
+}
+
+
+/* Image label */
+
+.image-label {
+    position: absolute;
+
+    bottom: 12px;
+
+    left: 12px;
+
+    padding: 5px 8px;
+
+    background: rgba(16, 30, 46, 0.75);
+
+    color: #ffffff;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+
+    border-radius: 4px;
+}
+
+
+/* Scanner result */
+
+.scanner-result {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 16px 5px 3px;
+}
+
+.scanner-result div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.scanner-result small {
+    color: #8995a3;
+
+    font-size: 9px;
+
+    margin-bottom: 3px;
+}
+
+.scanner-result strong {
+    color: #253248;
+
+    font-size: 12px;
+}
+
+.detected {
+    color: #2eae68 !important;
+}
+
+
+/* =========================================================
+   FEATURES SECTION
+========================================================= */
+
+.features-section {
+    padding: 100px 7%;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e7edf3;
+
+    border-bottom: 1px solid #e7edf3;
+}
+
+.section-heading {
+    text-align: center;
+
+    max-width: 650px;
+
+    margin: auto;
+}
+
+.section-heading span,
+.section-tag {
+    color: #1769e0;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    color: #172033;
+
+    font-size: 38px;
+
+    margin: 12px 0;
+}
+
+.section-heading p {
+    color: #788595;
+}
+
+
+/* Feature cards */
+
+.feature-grid {
+    max-width: 1100px;
+
+    margin: 55px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 16px;
+}
+
+.feature-card {
+    padding: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e1e7ee;
+
+    border-radius: 9px;
+
+    box-shadow:
+        0 8px 25px rgba(30, 49, 72, 0.05);
+
+    transition: 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #9fc3f4;
+
+    box-shadow:
+        0 15px 35px rgba(30, 49, 72, 0.10);
+}
+
+.feature-icon {
+    width: 34px;
+
+    height: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #1769e0;
+
+    background: #edf5ff;
+
+    border-radius: 6px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    margin-bottom: 25px;
+}
+
+.feature-card h3 {
+    color: #1d2a3d;
+
+    font-size: 17px;
+
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: #748192;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   TECHNOLOGY SECTION
+========================================================= */
+
+.technology-section {
+    padding: 110px 7%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f3f7fb,
+            #ffffff
+        );
+
+    border-bottom: 1px solid #e5ebf1;
+}
+
+.technology-content {
+    max-width: 850px;
+}
+
+.technology-content h2 {
+    color: #172033;
+
+    font-size: 44px;
+
+    line-height: 1.15;
+
+    margin: 15px 0;
+}
+
+.technology-content h2 span {
+    color: #1769e0;
+}
+
+.technology-content > p {
+    color: #7d8997;
+
+    max-width: 650px;
+}
+
+
+/* Technology list */
+
+.tech-list {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+.tech-list div {
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #dfe6ee;
+
+    border-radius: 7px;
+
+    box-shadow:
+        0 6px 18px rgba(30, 49, 72, 0.04);
+}
+
+.tech-list strong {
+    display: block;
+
+    color: #233148;
+
+    font-size: 14px;
+}
+
+.tech-list span {
+    color: #718092;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    padding: 30px 7%;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e0e7ee;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+footer div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+footer strong {
+    color: #253248;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+}
+
+footer span,
+footer p {
+    color: #7b8795;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   CHATBOT BUTTON
+========================================================= */
+
+.chatbot-button {
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    width: 58px;
+
+    height: 58px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #1769e0;
+
+    color: #ffffff;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(23, 105, 224, 0.28);
+
+    z-index: 2000;
+
+    transition: 0.25s ease;
+}
+
+.chatbot-button:hover {
+    transform: translateY(-3px) scale(1.03);
+
+    box-shadow:
+        0 15px 35px rgba(23, 105, 224, 0.35);
+}
+
+
+/* =========================================================
+   CHATBOT WINDOW
+========================================================= */
+
+.chatbot-window {
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 95px;
+
+    width: 350px;
+
+    height: 470px;
+
+    background: #ffffff;
+
+    border: 1px solid #dce4ec;
+
+    border-radius: 12px;
+
+    display: none;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    z-index: 1999;
+
+    box-shadow:
+        0 25px 70px rgba(28, 48, 72, 0.18);
+}
+
+
+/* Chat header */
+
+.chatbot-header {
+    padding: 16px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1769e0,
+            #2d82ed
+        );
+
+    color: #ffffff;
+}
+
+.chatbot-header div {
+    display: flex;
+
+    flex-direction: column;
+}
+
+.chatbot-header strong {
+    font-size: 13px;
+}
+
+.chatbot-header span {
+    color: rgba(255,255,255,0.75);
+
+    font-size: 9px;
+}
+
+.chatbot-header button {
+    background: none;
+
+    border: none;
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    cursor: pointer;
+}
+
+
+/* Chat messages */
+
+.chatbot-messages {
+    flex: 1;
+
+    padding: 15px;
+
+    overflow-y: auto;
+
+    background: #f6f9fc;
+}
+
+.bot-message {
+    background: #ffffff;
+
+    border: 1px solid #e0e7ee;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    color: #596779;
+
+    font-size: 12px;
+
+    max-width: 90%;
+
+    box-shadow:
+        0 4px 12px rgba(25, 45, 68, 0.04);
+}
+
+
+/* User message */
+
+.user-message {
+    background: #1769e0;
+
+    color: #ffffff;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-size: 12px;
+
+    max-width: 85%;
+
+    margin: 10px 0 10px auto;
+}
+
+
+/* Chat input */
+
+.chatbot-input {
+    padding: 12px;
+
+    display: flex;
+
+    gap: 8px;
+
+    background: #ffffff;
+
+    border-top: 1px solid #e0e7ee;
+}
+
+.chatbot-input input {
+    flex: 1;
+
+    background: #f5f8fb;
+
+    border: 1px solid #d8e1ea;
+
+    border-radius: 6px;
+
+    padding: 10px;
+
+    color: #26354a;
+
+    outline: none;
+
+    font-size: 12px;
+}
+
+.chatbot-input input:focus {
+    border-color: #1769e0;
+
+    background: #ffffff;
+}
+
+.chatbot-input button {
+    width: 40px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #1769e0;
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.2s ease;
+}
+
+.chatbot-input button:hover {
+    background: #1259c1;
+}
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        padding: 70px 6%;
+    }
+
+    .hero-visual {
+        margin-top: 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .nav-buttons {
+        gap: 5px;
+    }
+
+    .btn-login,
+    .btn-register {
+        padding: 8px 10px;
+    }
+
+    .hero {
+        padding: 55px 5%;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .feature-grid,
+    .tech-list {
+        grid-template-columns: 1fr;
+    }
+
+    .chatbot-window {
+        right: 10px;
+
+        width: calc(100% - 20px);
+    }
+
+    footer {
+        flex-direction: column;
+
+        gap: 15px;
+
+        text-align: center;
+    }
+}
+.logo {
+    text-decoration: none;
+    color: inherit;
+}

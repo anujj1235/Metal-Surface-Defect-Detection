@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Inspection Result | Metal Vision AI
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/result.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ====================================================== -->
+
+    <header class="result-navbar">
+
+        <a
+            href="dashboard.html"
+            class="result-brand"
+        >
+
+            <div class="result-logo">
+                MV
+            </div>
+
+            <div>
+
+                <strong>
+                    METAL VISION
+                </strong>
+
+                <span>
+                    AI INSPECTION SYSTEM
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="result-nav-right">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="inspection.html">
+                New Inspection
+            </a>
+
+            <a href="history.html">
+                History
+            </a>
+
+
+            <div class="result-user">
+
+                <div
+                    class="user-avatar"
+                    id="userAvatar"
+                >
+                    U
+                </div>
+
+                <span id="resultUserName">
+                    User
+                </span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="result-page">
+
+
+        <!-- =================================================
+             PAGE HEADING
+        ================================================== -->
+
+        <section class="result-heading">
+
+            <div>
+
+                <span class="section-tag">
+                    INSPECTION COMPLETE
+                </span>
+
+                <h1>
+                    AI Inspection Result
+                </h1>
+
+                <p>
+                    ResNet50 classification and approximate
+                    Grad-CAM defect localization have been
+                    completed successfully.
+                </p>
+
+            </div>
+
+
+            <div class="result-id">
+
+                <span>
+                    INSPECTION ID
+                </span>
+
+                <strong id="inspectionId">
+                    —
+                </strong>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             RESULT SUMMARY
+        ================================================== -->
+
+        <section class="result-summary">
+
+
+            <!-- STATUS -->
+
+            <div class="result-status-card">
+
+                <div
+                    class="result-status-icon"
+                    id="resultStatusIcon"
+                >
+                    !
+                </div>
+
+                <div>
+
+                    <span>
+                        ANALYSIS STATUS
+                    </span>
+
+                    <strong id="resultStatus">
+                        —
+                    </strong>
+
+                    <small id="resultStatusDescription">
+                        AI inspection result
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- METAL TYPE -->
+
+            <div class="summary-card">
+
+                <span>
+                    METAL TYPE
+                </span>
+
+                <strong id="summaryMetalType">
+                    —
+                </strong>
+
+                <small>
+                    Detected material category
+                </small>
+
+            </div>
+
+
+
+            <!-- DEFECT TYPE -->
+
+            <div class="summary-card">
+
+                <span>
+                    DEFECT TYPE
+                </span>
+
+                <strong id="defectType">
+                    —
+                </strong>
+
+                <small>
+                    Surface classification
+                </small>
+
+            </div>
+
+
+
+            <!-- CONFIDENCE -->
+
+            <div class="summary-card">
+
+                <span>
+                    CONFIDENCE
+                </span>
+
+                <strong id="confidence">
+                    —
+                </strong>
+
+                <small>
+                    Prediction confidence
+                </small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             IMAGE ANALYSIS
+        ================================================== -->
+
+        <section class="visual-analysis">
+
+
+            <!-- =================================================
+                 ORIGINAL IMAGE
+            ================================================== -->
+
+            <div class="visual-card">
+
+                <div class="visual-header">
+
+                    <div>
+
+                        <span>
+                            IMAGE 01
+                        </span>
+
+                        <h2>
+                            Original Metal Surface
+                        </h2>
+
+                    </div>
+
+                    <div class="image-badge">
+                        INPUT
+                    </div>
+
+                </div>
+
+
+                <div class="image-container">
+
+                    <img
+                        id="originalImage"
+                        src=""
+                        alt="Original metal surface"
+                    >
+
+
+                    <div
+                        class="image-placeholder"
+                        id="originalPlaceholder"
+                    >
+
+                        <span>
+                            No image available
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="image-caption">
+
+                    <span>
+                        SOURCE IMAGE
+                    </span>
+
+                    <strong id="resultFileName">
+                        Inspection image
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ANNOTATED DEFECT IMAGE
+            ================================================== -->
+
+            <div class="visual-card">
+
+                <div class="visual-header">
+
+                    <div>
+
+                        <span>
+                            IMAGE 02
+                        </span>
+
+                        <h2>
+                            AI Defect Localization
+                        </h2>
+
+                    </div>
+
+                    <div class="image-badge gradcam-badge">
+                        GRAD-CAM
+                    </div>
+
+                </div>
+
+
+                <div class="image-container">
+
+                    <img
+                        id="annotatedImage"
+                        src=""
+                        alt="AI annotated defect localization"
+                    >
+
+
+                    <div
+                        class="gradcam-placeholder"
+                        id="annotatedPlaceholder"
+                    >
+
+                        <div class="heatmap-preview">
+
+                            <div class="heatmap-center"></div>
+
+                        </div>
+
+                        <span>
+                            Localization visualization
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="image-caption">
+
+                    <span>
+                        AI LOCALIZATION
+                    </span>
+
+                    <strong id="annotationCaption">
+                        Approximate defect region
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ANALYSIS DETAILS
+        ================================================== -->
+
+        <section class="details-section">
+
+
+            <!-- =================================================
+                 DETAILS CARD
+            ================================================== -->
+
+            <div class="details-card">
+
+                <div class="details-header">
+
+                    <span class="section-tag">
+                        ANALYSIS DETAILS
+                    </span>
+
+                    <h2>
+                        Inspection Information
+                    </h2>
+
+                </div>
+
+
+                <!-- METAL TYPE -->
+
+                <div class="detail-item">
+
+                    <span>
+                        METAL TYPE
+                    </span>
+
+                    <strong id="detailMetalType">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <!-- DEFECT TYPE -->
+
+                <div class="detail-item">
+
+                    <span>
+                        DEFECT TYPE
+                    </span>
+
+                    <strong id="detailDefectType">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <!-- DEFECTED AREA -->
+
+                <div class="detail-item">
+
+                    <span>
+                        DEFECTED AREA
+                    </span>
+
+                    <strong id="detailDefectedArea">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <!-- COVERAGE -->
+
+                <div class="detail-item">
+
+                    <span>
+                        ESTIMATED DEFECT COVERAGE
+                    </span>
+
+                    <strong id="detailCoverage">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <!-- CONFIDENCE -->
+
+                <div class="detail-item">
+
+                    <span>
+                        CONFIDENCE
+                    </span>
+
+                    <strong id="detailConfidence">
+                        —
+                    </strong>
+
+                </div>
+
+
+                <!-- SEVERITY -->
+
+                <div class="detail-item">
+
+                    <span>
+                        ESTIMATED SEVERITY
+                    </span>
+
+                    <strong id="detailSeverity">
+                        —
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 RECOMMENDATION CARD
+            ================================================== -->
+
+            <div class="explanation-card">
+
+                <div class="explanation-icon">
+                    AI
+                </div>
+
+
+                <div>
+
+                    <span>
+                        AI INTERPRETATION
+                    </span>
+
+                    <h3 id="interpretationTitle">
+                        Inspection Analysis
+                    </h3>
+
+
+                    <p id="aiInterpretation">
+                        The AI model has analyzed the uploaded
+                        metal surface image. The inspection result
+                        will appear here.
+                    </p>
+
+
+                    <!-- RECOMMENDATION -->
+
+                    <div
+                        class="recommendation-box"
+                        id="recommendationBox"
+                    >
+
+                        <strong>
+                            RECOMMENDATION
+                        </strong>
+
+                        <p id="recommendationText">
+                            —
+                        </p>
+
+                    </div>
+
+
+                    <!-- REUSE GUIDANCE -->
+
+                    <div
+                        class="reuse-guidance-box"
+                        id="reuseGuidanceBox"
+                    >
+
+                        <strong>
+                            INSPECTION GUIDANCE
+                        </strong>
+
+                        <p id="reuseGuidanceText">
+                            —
+                        </p>
+
+                    </div>
+
+
+                    <p
+                        class="localization-note"
+                        id="localizationNote"
+                    >
+
+                        <strong>
+                            Note:
+                        </strong>
+
+                        Grad-CAM provides an approximate
+                        visualization of important regions and
+                        does not represent an exact defect boundary.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ACTIONS
+        ================================================== -->
+
+        <section class="result-actions">
+
+            <button
+                type="button"
+                class="secondary-action"
+                id="backInspectionBtn"
+            >
+                <span>←</span>
+                New Inspection
+            </button>
+
+
+            <div class="result-action-group">
+
+                <button
+                    type="button"
+                    class="result-action-btn preview-btn"
+                    id="resultPreviewBtn"
+                >
+                    <span>👁</span>
+                    Result Preview
+                </button>
+
+
+                <button
+                    type="button"
+                    class="result-action-btn pdf-btn"
+                    id="generatePdfBtn"
+                >
+                    <span>📄</span>
+                    Generate PDF
+                </button>
+
+
+                <button
+                    type="button"
+                    class="result-action-btn secondary-btn"
+                    id="newInspectionBtn"
+                >
+                    <span>＋</span>
+                    New Inspection
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="result-footer">
+
+        <div>
+
+            <strong>
+                METAL VISION AI
+            </strong>
+
+            <span>
+                Industrial Metal Surface Defect Detection
+            </span>
+
+        </div>
+
+
+        <p>
+            © 2026 Metal Vision AI.
+            Final Year Engineering Project.
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         RESULT PREVIEW MODAL
+    ====================================================== -->
+
+    <div
+        id="resultPreviewModal"
+        class="result-preview-modal"
+    >
+
+        <div class="result-preview-overlay"></div>
+
+
+        <div class="result-preview-container">
+
+
+            <!-- PREVIEW HEADER -->
+
+            <div class="result-preview-header">
+
+                <div>
+
+                    <span class="preview-label">
+                        INSPECTION REPORT
+                    </span>
+
+                    <h2>
+                        Result Preview
+                    </h2>
+
+                </div>
+
+
+                <button
+                    id="closeResultPreview"
+                    class="preview-close-btn"
+                    type="button"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- PREVIEW BODY -->
+
+            <div class="result-preview-body">
+
+
+                <!-- REPORT HEADER -->
+
+                <div class="preview-report-header">
+
+                    <div>
+
+                        <div class="preview-brand">
+                            METAL VISION AI
+                        </div>
+
+                        <p>
+                            Industrial Metal Surface Inspection
+                        </p>
+
+                    </div>
+
+
+                    <div class="preview-report-status">
+                        <span>
+                            AI INSPECTION RESULT
+                        </span>
+                    </div>
+
+                </div>
+
+
+
+                <!-- INSPECTION INFORMATION -->
+
+                <div class="preview-section">
+
+                    <h3>
+                        Inspection Information
+                    </h3>
+
+
+                    <div class="preview-info-grid">
+
+                        <div class="preview-info-item">
+
+                            <span>
+                                Inspection ID
+                            </span>
+
+                            <strong id="previewInspectionId">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="preview-info-item">
+
+                            <span>
+                                File Name
+                            </span>
+
+                            <strong id="previewFileName">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="preview-info-item">
+
+                            <span>
+                                Model
+                            </span>
+
+                            <strong id="previewModelName">
+                                ResNet50
+                            </strong>
+
+                        </div>
+
+
+                        <div class="preview-info-item">
+
+                            <span>
+                                Input Size
+                            </span>
+
+                            <strong>
+                                224 × 224 px
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RESULT SUMMARY -->
+
+                <div class="preview-section">
+
+                    <h3>
+                        Inspection Result
+                    </h3>
+
+
+                    <div class="preview-result-grid">
+
+
+                        <div class="preview-result-card">
+
+                            <span class="preview-result-label">
+                                Inspection Status
+                            </span>
+
+                            <strong id="previewStatus">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="preview-result-card">
+
+                            <span class="preview-result-label">
+                                Metal Type
+                            </span>
+
+                            <strong id="previewMetalType">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="preview-result-card">
+
+                            <span class="preview-result-label">
+                                Defect Type
+                            </span>
+
+                            <strong id="previewDefectType">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="preview-result-card">
+
+                            <span class="preview-result-label">
+                                Confidence
+                            </span>
+
+                            <strong id="previewConfidence">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="preview-result-card">
+
+                            <span class="preview-result-label">
+                                Defected Area
+                            </span>
+
+                            <strong id="previewDefectedArea">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="preview-result-card">
+
+                            <span class="preview-result-label">
+                                Estimated Coverage
+                            </span>
+
+                            <strong id="previewCoverage">
+                                —
+                            </strong>
+
+                        </div>
+
+
+                        <div class="preview-result-card">
+
+                            <span class="preview-result-label">
+                                Estimated Severity
+                            </span>
+
+                            <strong id="previewSeverity">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- IMAGES -->
+
+                <div class="preview-section">
+
+                    <h3>
+                        Inspection Visualization
+                    </h3>
+
+
+                    <div class="preview-images">
+
+
+                        <!-- ORIGINAL -->
+
+                        <div class="preview-image-card">
+
+                            <div class="preview-image-title">
+                                Original Image
+                            </div>
+
+
+                            <div class="preview-image-wrapper">
+
+                                <img
+                                    id="previewOriginalImage"
+                                    src=""
+                                    alt="Original metal surface image"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- ANNOTATED -->
+
+                        <div class="preview-image-card">
+
+                            <div class="preview-image-title">
+                                AI Defect Localization
+                            </div>
+
+
+                            <div class="preview-image-wrapper">
+
+                                <img
+                                    id="previewAnnotatedImage"
+                                    src=""
+                                    alt="AI annotated defect localization"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- AI INTERPRETATION -->
+
+                <div class="preview-section">
+
+                    <h3>
+                        AI Interpretation
+                    </h3>
+
+
+                    <div class="preview-interpretation">
+
+                        <p id="previewInterpretation">
+                            —
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RECOMMENDATION -->
+
+                <div class="preview-section">
+
+                    <h3>
+                        Recommendation / Solution
+                    </h3>
+
+
+                    <div class="preview-interpretation">
+
+                        <p id="previewRecommendation">
+                            —
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LOCALIZATION -->
+
+                <div class="preview-section">
+
+                    <h3>
+                        Defect Localization
+                    </h3>
+
+
+                    <div class="preview-localization">
+
+                        <span>
+                            ●
+                        </span>
+
+                        <p id="previewLocalization">
+                            —
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PREVIEW FOOTER -->
+
+            <div class="result-preview-footer">
+
+                <button
+                    id="closeResultPreviewBottom"
+                    class="preview-close-bottom"
+                    type="button"
+                >
+                    Close Preview
+                </button>
+
+
+                <button
+                    id="previewGeneratePdfBtn"
+                    class="preview-pdf-btn"
+                    type="button"
+                >
+                    📄 Generate PDF
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/result.js"></script>
+
+
+</body>
+
+</html>
