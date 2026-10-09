@@ -1,0 +1,5 @@
+Model: ResNet50
+Classes: 9
+Test images: 158
+Test accuracy: 97.47%
+Test loss: 0.162493

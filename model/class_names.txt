@@ -1,0 +1,6 @@
+aluminium_defective
+aluminium_good
+copper_defective
+copper_good
+iron_defective
+steel_defective
